@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "e:\\githubprojects\\capjam2024\\capjam2024\\programengineica2\\intermediate\\build\\win64\\unrealeditor\\inc\\programengineica2\\uht\\programengineica2playercontroller.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "e:\\githubprojects\\capjam2024\\capjam2024\\programengineica2\\intermediate\\build\\win64\\x64\\programengineica2editor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "e:\\githubprojects\\capjam2024\\capjam2024\\programengineica2\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\programengineica2\\definitions.programengineica2.h",
+            "e:\\githubprojects\\capjam2024\\capjam2024\\programengineica2\\source\\programengineica2\\programengineica2playercontroller.h",
+            "e:\\githubprojects\\capjam2024\\capjam2024\\programengineica2\\intermediate\\build\\win64\\unrealeditor\\inc\\programengineica2\\uht\\programengineica2playercontroller.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

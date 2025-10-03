@@ -1,0 +1,14 @@
+{
+	"version": 1,
+	"changelists": [
+		{
+			"guid": "00000000000000000000000000000000",
+			"description": "Default Uncontrolled Changelist",
+			"files": [
+				"E:/GithubProjects/CapJam2024/CAPJAM2024/ProgramEngineICA2/Content/TestActor.uasset",
+				"E:/GithubProjects/CapJam2024/CAPJAM2024/ProgramEngineICA2/Content/__ExternalActors__/FirstPerson/Maps/FirstPersonMap/C/AQ/MZ3OO6FO5NAZ4SBEB2POMI.uasset",
+				"E:/GithubProjects/CapJam2024/CAPJAM2024/ProgramEngineICA2/Content/__ExternalActors__/FirstPerson/Maps/FirstPersonMap/9/U0/HLEBRUXMG4PFOIIBH85QXB.uasset"
+			]
+		}
+	]
+}

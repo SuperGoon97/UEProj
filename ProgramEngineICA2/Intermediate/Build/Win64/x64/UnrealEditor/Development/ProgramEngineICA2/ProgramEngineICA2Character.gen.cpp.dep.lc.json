@@ -1,0 +1,23 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "e:\\githubprojects\\capjam2024\\capjam2024\\programengineica2\\intermediate\\build\\win64\\unrealeditor\\inc\\programengineica2\\uht\\programengineica2character.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "e:\\githubprojects\\capjam2024\\capjam2024\\programengineica2\\intermediate\\build\\win64\\x64\\programengineica2editor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "e:\\githubprojects\\capjam2024\\capjam2024\\programengineica2\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\programengineica2\\definitions.programengineica2.h",
+            "e:\\githubprojects\\capjam2024\\capjam2024\\programengineica2\\source\\programengineica2\\programengineica2character.h",
+            "e:\\epicgames\\epic games\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\gameframework\\character.h",
+            "e:\\epicgames\\epic games\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\gameframework\\charactermovementreplication.h",
+            "e:\\epicgames\\epic games\\ue_5.4\\engine\\source\\runtime\\experimental\\iris\\core\\public\\iris\\serialization\\irisobjectreferencepackagemap.h",
+            "e:\\epicgames\\epic games\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\iriscore\\uht\\irisobjectreferencepackagemap.generated.h",
+            "e:\\epicgames\\epic games\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\charactermovementreplication.generated.h",
+            "e:\\epicgames\\epic games\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\gameframework\\rootmotionsource.h",
+            "e:\\epicgames\\epic games\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\rootmotionsource.generated.h",
+            "e:\\epicgames\\epic games\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\character.generated.h",
+            "e:\\githubprojects\\capjam2024\\capjam2024\\programengineica2\\intermediate\\build\\win64\\unrealeditor\\inc\\programengineica2\\uht\\programengineica2character.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

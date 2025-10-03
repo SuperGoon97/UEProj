@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "ProgramEngineICA2",
+			"Path": "..\\Source\\ProgramEngineICA2.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "ProgramEngineICA2Editor",
+			"Path": "..\\Source\\ProgramEngineICA2Editor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
