@@ -1,11 +1,13 @@
-"E:\GithubProjects\CapJam2024\CAPJAM2024\ProgramEngineICA2\Intermediate\Build\Win64\UnrealEditor\Inc\ProgramEngineICA2\UHT\InventoryComponent.gen.cpp"
-/FI"E:\GithubProjects\CapJam2024\CAPJAM2024\ProgramEngineICA2\Intermediate\Build\Win64\x64\ProgramEngineICA2Editor\DebugGame\UnrealEd\SharedPCH.UnrealEd.Project.NonOptimized.ValApi.Cpp20.h"
-/FI"E:\GithubProjects\CapJam2024\CAPJAM2024\ProgramEngineICA2\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\ProgramEngineICA2\Definitions.ProgramEngineICA2.h"
-/Yu"E:\GithubProjects\CapJam2024\CAPJAM2024\ProgramEngineICA2\Intermediate\Build\Win64\x64\ProgramEngineICA2Editor\DebugGame\UnrealEd\SharedPCH.UnrealEd.Project.NonOptimized.ValApi.Cpp20.h"
-/Fp"E:\GithubProjects\CapJam2024\CAPJAM2024\ProgramEngineICA2\Intermediate\Build\Win64\x64\ProgramEngineICA2Editor\DebugGame\UnrealEd\SharedPCH.UnrealEd.Project.NonOptimized.ValApi.Cpp20.h.pch"
-/Fo"E:\GithubProjects\CapJam2024\CAPJAM2024\ProgramEngineICA2\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\ProgramEngineICA2\InventoryComponent.gen.cpp.obj"
-/sourceDependencies "E:\GithubProjects\CapJam2024\CAPJAM2024\ProgramEngineICA2\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\ProgramEngineICA2\InventoryComponent.gen.cpp.dep.json"
-@"E:\GithubProjects\CapJam2024\CAPJAM2024\ProgramEngineICA2\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\ProgramEngineICA2\ProgramEngineICA2.Shared.rsp"
+"E:\School\Year2\UEProj\ProgramEngineICA2\Intermediate\Build\Win64\UnrealEditor\Inc\ProgramEngineICA2\UHT\InventoryComponent.gen.cpp"
+/FI"E:\School\Year2\UEProj\ProgramEngineICA2\Intermediate\Build\Win64\x64\ProgramEngineICA2Editor\DebugGame\UnrealEd\SharedPCH.UnrealEd.Project.NonOptimized.ValApi.Cpp20.InclOrderUnreal5_4.h"
+/FI"E:\School\Year2\UEProj\ProgramEngineICA2\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\ProgramEngineICA2\Definitions.ProgramEngineICA2.h"
+/Yu"E:\School\Year2\UEProj\ProgramEngineICA2\Intermediate\Build\Win64\x64\ProgramEngineICA2Editor\DebugGame\UnrealEd\SharedPCH.UnrealEd.Project.NonOptimized.ValApi.Cpp20.InclOrderUnreal5_4.h"
+/Fp"E:\School\Year2\UEProj\ProgramEngineICA2\Intermediate\Build\Win64\x64\ProgramEngineICA2Editor\DebugGame\UnrealEd\SharedPCH.UnrealEd.Project.NonOptimized.ValApi.Cpp20.InclOrderUnreal5_4.h.pch"
+/Fo"E:\School\Year2\UEProj\ProgramEngineICA2\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\ProgramEngineICA2\InventoryComponent.gen.cpp.obj"
+/experimental:log "E:\School\Year2\UEProj\ProgramEngineICA2\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\ProgramEngineICA2\InventoryComponent.gen.cpp.sarif"
+/sourceDependencies "E:\School\Year2\UEProj\ProgramEngineICA2\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\ProgramEngineICA2\InventoryComponent.gen.cpp.dep.json"
+@"E:\School\Year2\UEProj\ProgramEngineICA2\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\ProgramEngineICA2\ProgramEngineICA2.Shared.rsp"
+/d2ssa-cfg-question-
 /Zc:inline
 /nologo
 /Oi

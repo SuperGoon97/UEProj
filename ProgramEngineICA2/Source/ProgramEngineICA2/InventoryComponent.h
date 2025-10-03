@@ -49,6 +49,15 @@ public:
 	UFUNCTION()
 	void AddNewItem(UItem* NewItem, FString ItemString, int Amount);
 
+	UFUNCTION()
+	bool FoundInMap(FString ItemName);
+
+	UFUNCTION()
+	TArray<FString> FindItemSerializedNamesFromItemName(FString ItemName);
+
+	UFUNCTION()
+	TMap<FString, int> FindItemCountsFromItemName(FString ItemName);
+
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;

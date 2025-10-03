@@ -1,0 +1,13 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "e:\\school\\year2\\ueproj\\programengineica2\\source\\programengineica2\\itemstruct.cpp",
+        "ProvidedModule": "",
+        "PCH": "e:\\school\\year2\\ueproj\\programengineica2\\intermediate\\build\\win64\\x64\\programengineica2editor\\debuggame\\unrealed\\sharedpch.unrealed.project.nonoptimized.valapi.cpp20.inclorderunreal5_4.h.pch",
+        "Includes": [
+            "e:\\school\\year2\\ueproj\\programengineica2\\intermediate\\build\\win64\\x64\\unrealeditor\\debuggame\\programengineica2\\definitions.programengineica2.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

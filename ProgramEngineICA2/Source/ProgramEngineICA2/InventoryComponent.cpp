@@ -28,8 +28,8 @@ bool UInventoryComponent::AddItem(UItem* NewItem, int Amount)
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("Slots required: %i"), ISlotsRequired));
 
 		FString ItemName = NewItem->ItemData.ItemName;
-		FString ItemString = ItemName;
-		ItemString.Append(FString::FromInt(0));
+		FString ItemSerializedName = ItemName;
+		ItemSerializedName.Append(FString::FromInt(0));
 
 		bool bIsItemStackable = NewItem->ItemData.bIsStackable;
 
@@ -43,11 +43,11 @@ bool UInventoryComponent::AddItem(UItem* NewItem, int Amount)
 			if (Amount <= 0) { return true; } // Item amount invalid break
 			if (Amount > MaxStackSize) { StackAmount = MaxStackSize; }
 
-			if (bIsStackable && bIsItemStackable) { Remainder = AddItemStackable(NewItem, ItemName, ItemString, StackAmount); }
+			if (bIsStackable && bIsItemStackable) { Remainder = AddItemStackable(NewItem, ItemName, ItemSerializedName, StackAmount); }
 			else if (ItemCountMap.Num() < InventorySize)
 			{
 				StackAmount = 1; // Non-stackable items can only be added one at a time
-				AddNewItem(NewItem, ItemString, StackAmount);
+				AddNewItem(NewItem, ItemSerializedName, StackAmount);
 
 				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Added item: %s"), *NewItem->ItemData.ItemName));
 			}
@@ -68,61 +68,120 @@ bool UInventoryComponent::AddItem(UItem* NewItem, int Amount)
 	return false; // Invalid item
 }
 
-int UInventoryComponent::AddItemStackable(UItem* NewItem, FString ItemName, FString ItemString,int Amount)
+int UInventoryComponent::AddItemStackable(UItem* NewItem, FString ItemName, FString ItemSerializedName,int Amount)
 {
 	// GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("Attempting to stack item: %s (Amount: %d)"), *ItemName, Amount));
 
-	if (ItemCountMap.Contains(ItemString))
+	if (FoundInMap(ItemName))
 	{
-		int ItemCount = ItemCountMap[ItemString];
+		int Remainder = Amount;
+
+		TMap<FString,int> MapOfStackSerializedNamesWithInt = FindItemCountsFromItemName(ItemName);
 
 		// Issue is its finding item0 needs to check all instances of item[n] to find one that has room to stack, make function for this tmrrw
 
-		UE_LOG(LogTemp, Warning,TEXT("Item count is: %d"), ItemCount);
-		UE_LOG(LogTemp, Warning, TEXT("MaxStackSize is: %d"), MaxStackSize);
-
-		if (ItemCount < MaxStackSize)
+		for (const auto& [ItemSerial,ItemAmount] : MapOfStackSerializedNamesWithInt)
 		{
-			int CountSpace = MaxStackSize - ItemCountMap[ItemString];
-			int Remainder = 0;
-			if ((Amount - CountSpace) > 0) { Remainder = Amount - CountSpace; } // Calculate remainder if amount exceeds available space in stack
-			if (Amount > CountSpace) { Amount = CountSpace; } // Limit amount to available space in stack
-			ItemCountMap[ItemString]+= Amount;
+			Amount = Remainder;
+			if (ItemAmount < MaxStackSize)
+			{
+				int CountSpace = MaxStackSize - ItemCountMap[ItemSerial];
+				if ((Amount - CountSpace) >= 0) { Remainder = Amount - CountSpace; } // Calculate remainder if amount exceeds available space in stack
+				if (Remainder < 0) { Remainder = 0; } // No negative remainder
+				if (Amount > CountSpace) { Amount = CountSpace; } // Limit amount to available space in stack
+				ItemCountMap[ItemSerial] += Amount;
 
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Stacked item: %s (Count: %d)"), *ItemName, ItemCountMap[ItemName]));
-			return Remainder; // Item stacked successfully
+				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Stacked item: %s (Count: %d)"), *ItemName, ItemCountMap[ItemName]));
+			}
 		}
-		else if (ItemCountMap.Num() < InventorySize)
+
+		if (Remainder <= 0) 
+		{ 
+			return 0; // All items stacked successfully
+		}
+
+		if (ItemCountMap.Num() < InventorySize)
 		{
 			for (int i = 1; i <= InventorySize; i++)
 			{
-				ItemString = ItemName;
-				ItemString.Append(FString::FromInt(i));
-				if (!ItemCountMap.Contains(ItemString))
-				{
-					AddNewItem(NewItem, ItemString, Amount);
+				ItemSerializedName = ItemName;
+				ItemSerializedName.Append(FString::FromInt(i));
 
-					GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Added new stack for item: %s"), *ItemString));
+				if (!ItemCountMap.Contains(ItemSerializedName))
+				{
+					AddNewItem(NewItem, ItemSerializedName, Amount);
+
+					GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Added new stack for item: %s"), *ItemSerializedName));
 					return 0; // New stack created successfully
 				}
 			}
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Error finding stack slot!"));
-			return Amount; // No available stack slot or error
+			return Remainder; // No available stack slot or error
 		}
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Max stack size reached for item: %s"), *ItemName));
-		return Amount; // Inventory Full
+		return Remainder; // Inventory Full
 	}
 	else if (ItemCountMap.Num() < InventorySize)
 	{
-		AddNewItem(NewItem, ItemString, Amount);
+		AddNewItem(NewItem, ItemSerializedName, Amount);
 	}
 	return 0;
 }
 
-void UInventoryComponent::AddNewItem(UItem* NewItem, FString ItemString, int Amount)
+bool UInventoryComponent::FoundInMap(FString ItemName)
 {
-	ItemCountMap.Add(ItemString, Amount);
-	ItemMap.Add(ItemString, NewItem);
+	FString ItemSerializedName;
+	for (int i = 0; i < InventorySize; i++) 
+	{
+		ItemSerializedName = ItemName;
+		ItemSerializedName.Append(FString::FromInt(i));
+		if (ItemCountMap.Contains(ItemSerializedName)) 
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+TArray<FString> UInventoryComponent::FindItemSerializedNamesFromItemName(FString ItemName)
+{
+	TArray<FString> FoundItemSerializedNames;
+	FString ItemSerializedName;
+
+	for (int i = 0; i < InventorySize; i++) 
+	{
+		ItemSerializedName = ItemName;
+		ItemSerializedName.Append(FString::FromInt(i));
+
+		if (ItemCountMap.Contains(ItemSerializedName)) 
+		{
+			FoundItemSerializedNames.Add(ItemSerializedName);
+		}
+	}
+	return FoundItemSerializedNames;
+}
+
+TMap<FString,int> UInventoryComponent::FindItemCountsFromItemName(FString ItemName)
+{
+	TMap<FString, int> FoundItemCounts;
+	FString ItemSerializedName;
+	for (int i = 0; i < InventorySize; i++)
+	{
+		ItemSerializedName = ItemName;
+		ItemSerializedName.Append(FString::FromInt(i));
+
+		if (ItemCountMap.Contains(ItemSerializedName))
+		{
+			FoundItemCounts.Add(ItemSerializedName, ItemCountMap[ItemSerializedName]);
+		}
+	}
+	return FoundItemCounts;
+}
+
+void UInventoryComponent::AddNewItem(UItem* NewItem, FString ItemSerializedName, int Amount)
+{
+	ItemCountMap.Add(ItemSerializedName, Amount);
+	ItemMap.Add(ItemSerializedName, NewItem);
 }
 
 // Called when the game starts

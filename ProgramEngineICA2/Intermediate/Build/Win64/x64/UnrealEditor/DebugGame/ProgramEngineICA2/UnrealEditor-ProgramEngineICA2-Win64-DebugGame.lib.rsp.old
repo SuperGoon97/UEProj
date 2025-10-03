@@ -7,6 +7,7 @@
 /IGNORE:4221
 /NODEFAULTLIB
 "E:\GithubProjects\CapJam2024\CAPJAM2024\ProgramEngineICA2\Intermediate\Build\Win64\x64\ProgramEngineICA2Editor\DebugGame\UnrealEd\SharedPCH.UnrealEd.Project.NonOptimized.ValApi.Cpp20.h.obj"
+"E:\GithubProjects\CapJam2024\CAPJAM2024\ProgramEngineICA2\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\ProgramEngineICA2\InventoryComponent.gen.cpp.obj"
 "E:\GithubProjects\CapJam2024\CAPJAM2024\ProgramEngineICA2\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\ProgramEngineICA2\Item.gen.cpp.obj"
 "E:\GithubProjects\CapJam2024\CAPJAM2024\ProgramEngineICA2\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\ProgramEngineICA2\ItemStruct.gen.cpp.obj"
 "E:\GithubProjects\CapJam2024\CAPJAM2024\ProgramEngineICA2\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\ProgramEngineICA2\ProgramEngineICA2.init.gen.cpp.obj"
@@ -16,6 +17,7 @@
 "E:\GithubProjects\CapJam2024\CAPJAM2024\ProgramEngineICA2\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\ProgramEngineICA2\ProgramEngineICA2Projectile.gen.cpp.obj"
 "E:\GithubProjects\CapJam2024\CAPJAM2024\ProgramEngineICA2\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\ProgramEngineICA2\TP_PickUpComponent.gen.cpp.obj"
 "E:\GithubProjects\CapJam2024\CAPJAM2024\ProgramEngineICA2\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\ProgramEngineICA2\TP_WeaponComponent.gen.cpp.obj"
+"E:\GithubProjects\CapJam2024\CAPJAM2024\ProgramEngineICA2\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\ProgramEngineICA2\InventoryComponent.cpp.obj"
 "E:\GithubProjects\CapJam2024\CAPJAM2024\ProgramEngineICA2\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\ProgramEngineICA2\Item.cpp.obj"
 "E:\GithubProjects\CapJam2024\CAPJAM2024\ProgramEngineICA2\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\ProgramEngineICA2\ItemStruct.cpp.obj"
 "E:\GithubProjects\CapJam2024\CAPJAM2024\ProgramEngineICA2\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\ProgramEngineICA2\ProgramEngineICA2.cpp.obj"

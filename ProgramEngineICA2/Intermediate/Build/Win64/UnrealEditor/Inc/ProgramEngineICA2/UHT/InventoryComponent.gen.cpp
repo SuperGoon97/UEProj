@@ -187,6 +187,158 @@ DEFINE_FUNCTION(UInventoryComponent::execAddNewItem)
 }
 // End Class UInventoryComponent Function AddNewItem
 
+// Begin Class UInventoryComponent Function FindItemCountsFromItemName
+struct Z_Construct_UFunction_UInventoryComponent_FindItemCountsFromItemName_Statics
+{
+	struct InventoryComponent_eventFindItemCountsFromItemName_Parms
+	{
+		FString ItemName;
+		TMap<FString,int32> ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "InventoryComponent.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStrPropertyParams NewProp_ItemName;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue_ValueProp;
+	static const UECodeGen_Private::FStrPropertyParams NewProp_ReturnValue_Key_KeyProp;
+	static const UECodeGen_Private::FMapPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UInventoryComponent_FindItemCountsFromItemName_Statics::NewProp_ItemName = { "ItemName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventFindItemCountsFromItemName_Parms, ItemName), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UInventoryComponent_FindItemCountsFromItemName_Statics::NewProp_ReturnValue_ValueProp = { "ReturnValue", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UInventoryComponent_FindItemCountsFromItemName_Statics::NewProp_ReturnValue_Key_KeyProp = { "ReturnValue_Key", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FMapPropertyParams Z_Construct_UFunction_UInventoryComponent_FindItemCountsFromItemName_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventFindItemCountsFromItemName_Parms, ReturnValue), EMapPropertyFlags::None, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UInventoryComponent_FindItemCountsFromItemName_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_FindItemCountsFromItemName_Statics::NewProp_ItemName,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_FindItemCountsFromItemName_Statics::NewProp_ReturnValue_ValueProp,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_FindItemCountsFromItemName_Statics::NewProp_ReturnValue_Key_KeyProp,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_FindItemCountsFromItemName_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_FindItemCountsFromItemName_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UInventoryComponent_FindItemCountsFromItemName_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UInventoryComponent, nullptr, "FindItemCountsFromItemName", nullptr, nullptr, Z_Construct_UFunction_UInventoryComponent_FindItemCountsFromItemName_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_FindItemCountsFromItemName_Statics::PropPointers), sizeof(Z_Construct_UFunction_UInventoryComponent_FindItemCountsFromItemName_Statics::InventoryComponent_eventFindItemCountsFromItemName_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_FindItemCountsFromItemName_Statics::Function_MetaDataParams), Z_Construct_UFunction_UInventoryComponent_FindItemCountsFromItemName_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UInventoryComponent_FindItemCountsFromItemName_Statics::InventoryComponent_eventFindItemCountsFromItemName_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UInventoryComponent_FindItemCountsFromItemName()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UInventoryComponent_FindItemCountsFromItemName_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UInventoryComponent::execFindItemCountsFromItemName)
+{
+	P_GET_PROPERTY(FStrProperty,Z_Param_ItemName);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(TMap<FString,int32>*)Z_Param__Result=P_THIS->FindItemCountsFromItemName(Z_Param_ItemName);
+	P_NATIVE_END;
+}
+// End Class UInventoryComponent Function FindItemCountsFromItemName
+
+// Begin Class UInventoryComponent Function FindItemSerializedNamesFromItemName
+struct Z_Construct_UFunction_UInventoryComponent_FindItemSerializedNamesFromItemName_Statics
+{
+	struct InventoryComponent_eventFindItemSerializedNamesFromItemName_Parms
+	{
+		FString ItemName;
+		TArray<FString> ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "InventoryComponent.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStrPropertyParams NewProp_ItemName;
+	static const UECodeGen_Private::FStrPropertyParams NewProp_ReturnValue_Inner;
+	static const UECodeGen_Private::FArrayPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UInventoryComponent_FindItemSerializedNamesFromItemName_Statics::NewProp_ItemName = { "ItemName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventFindItemSerializedNamesFromItemName_Parms, ItemName), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UInventoryComponent_FindItemSerializedNamesFromItemName_Statics::NewProp_ReturnValue_Inner = { "ReturnValue", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UInventoryComponent_FindItemSerializedNamesFromItemName_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventFindItemSerializedNamesFromItemName_Parms, ReturnValue), EArrayPropertyFlags::None, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UInventoryComponent_FindItemSerializedNamesFromItemName_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_FindItemSerializedNamesFromItemName_Statics::NewProp_ItemName,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_FindItemSerializedNamesFromItemName_Statics::NewProp_ReturnValue_Inner,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_FindItemSerializedNamesFromItemName_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_FindItemSerializedNamesFromItemName_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UInventoryComponent_FindItemSerializedNamesFromItemName_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UInventoryComponent, nullptr, "FindItemSerializedNamesFromItemName", nullptr, nullptr, Z_Construct_UFunction_UInventoryComponent_FindItemSerializedNamesFromItemName_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_FindItemSerializedNamesFromItemName_Statics::PropPointers), sizeof(Z_Construct_UFunction_UInventoryComponent_FindItemSerializedNamesFromItemName_Statics::InventoryComponent_eventFindItemSerializedNamesFromItemName_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_FindItemSerializedNamesFromItemName_Statics::Function_MetaDataParams), Z_Construct_UFunction_UInventoryComponent_FindItemSerializedNamesFromItemName_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UInventoryComponent_FindItemSerializedNamesFromItemName_Statics::InventoryComponent_eventFindItemSerializedNamesFromItemName_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UInventoryComponent_FindItemSerializedNamesFromItemName()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UInventoryComponent_FindItemSerializedNamesFromItemName_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UInventoryComponent::execFindItemSerializedNamesFromItemName)
+{
+	P_GET_PROPERTY(FStrProperty,Z_Param_ItemName);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(TArray<FString>*)Z_Param__Result=P_THIS->FindItemSerializedNamesFromItemName(Z_Param_ItemName);
+	P_NATIVE_END;
+}
+// End Class UInventoryComponent Function FindItemSerializedNamesFromItemName
+
+// Begin Class UInventoryComponent Function FoundInMap
+struct Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics
+{
+	struct InventoryComponent_eventFoundInMap_Parms
+	{
+		FString ItemName;
+		bool ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "InventoryComponent.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStrPropertyParams NewProp_ItemName;
+	static void NewProp_ReturnValue_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics::NewProp_ItemName = { "ItemName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventFoundInMap_Parms, ItemName), METADATA_PARAMS(0, nullptr) };
+void Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+{
+	((InventoryComponent_eventFoundInMap_Parms*)Obj)->ReturnValue = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(InventoryComponent_eventFoundInMap_Parms), &Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics::NewProp_ItemName,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UInventoryComponent, nullptr, "FoundInMap", nullptr, nullptr, Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics::PropPointers), sizeof(Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics::InventoryComponent_eventFoundInMap_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics::Function_MetaDataParams), Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics::InventoryComponent_eventFoundInMap_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UInventoryComponent_FoundInMap()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UInventoryComponent::execFoundInMap)
+{
+	P_GET_PROPERTY(FStrProperty,Z_Param_ItemName);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(bool*)Z_Param__Result=P_THIS->FoundInMap(Z_Param_ItemName);
+	P_NATIVE_END;
+}
+// End Class UInventoryComponent Function FoundInMap
+
 // Begin Class UInventoryComponent
 void UInventoryComponent::StaticRegisterNativesUInventoryComponent()
 {
@@ -195,6 +347,9 @@ void UInventoryComponent::StaticRegisterNativesUInventoryComponent()
 		{ "AddItem", &UInventoryComponent::execAddItem },
 		{ "AddItemStackable", &UInventoryComponent::execAddItemStackable },
 		{ "AddNewItem", &UInventoryComponent::execAddNewItem },
+		{ "FindItemCountsFromItemName", &UInventoryComponent::execFindItemCountsFromItemName },
+		{ "FindItemSerializedNamesFromItemName", &UInventoryComponent::execFindItemSerializedNamesFromItemName },
+		{ "FoundInMap", &UInventoryComponent::execFoundInMap },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -255,6 +410,9 @@ struct Z_Construct_UClass_UInventoryComponent_Statics
 		{ &Z_Construct_UFunction_UInventoryComponent_AddItem, "AddItem" }, // 2907680093
 		{ &Z_Construct_UFunction_UInventoryComponent_AddItemStackable, "AddItemStackable" }, // 3691827662
 		{ &Z_Construct_UFunction_UInventoryComponent_AddNewItem, "AddNewItem" }, // 358523196
+		{ &Z_Construct_UFunction_UInventoryComponent_FindItemCountsFromItemName, "FindItemCountsFromItemName" }, // 987665476
+		{ &Z_Construct_UFunction_UInventoryComponent_FindItemSerializedNamesFromItemName, "FindItemSerializedNamesFromItemName" }, // 4159682782
+		{ &Z_Construct_UFunction_UInventoryComponent_FoundInMap, "FoundInMap" }, // 806778554
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -328,14 +486,14 @@ UInventoryComponent::~UInventoryComponent() {}
 // End Class UInventoryComponent
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_GithubProjects_CapJam2024_CAPJAM2024_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_Statics
+struct Z_CompiledInDeferFile_FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UInventoryComponent, UInventoryComponent::StaticClass, TEXT("UInventoryComponent"), &Z_Registration_Info_UClass_UInventoryComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInventoryComponent), 1967149736U) },
+		{ Z_Construct_UClass_UInventoryComponent, UInventoryComponent::StaticClass, TEXT("UInventoryComponent"), &Z_Registration_Info_UClass_UInventoryComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInventoryComponent), 4027335075U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GithubProjects_CapJam2024_CAPJAM2024_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_197003708(TEXT("/Script/ProgramEngineICA2"),
-	Z_CompiledInDeferFile_FID_GithubProjects_CapJam2024_CAPJAM2024_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GithubProjects_CapJam2024_CAPJAM2024_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_1584152982(TEXT("/Script/ProgramEngineICA2"),
+	Z_CompiledInDeferFile_FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

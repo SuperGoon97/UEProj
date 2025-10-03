@@ -1,11 +1,11 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "e:\\githubprojects\\capjam2024\\capjam2024\\programengineica2\\intermediate\\build\\win64\\unrealeditor\\inc\\programengineica2\\uht\\programengineica2.init.gen.cpp",
+        "Source": "e:\\school\\year2\\ueproj\\programengineica2\\intermediate\\build\\win64\\unrealeditor\\inc\\programengineica2\\uht\\programengineica2.init.gen.cpp",
         "ProvidedModule": "",
-        "PCH": "e:\\githubprojects\\capjam2024\\capjam2024\\programengineica2\\intermediate\\build\\win64\\x64\\programengineica2editor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "PCH": "e:\\school\\year2\\ueproj\\programengineica2\\intermediate\\build\\win64\\x64\\programengineica2editor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.inclorderunreal5_4.h.pch",
         "Includes": [
-            "e:\\githubprojects\\capjam2024\\capjam2024\\programengineica2\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\programengineica2\\definitions.programengineica2.h"
+            "e:\\school\\year2\\ueproj\\programengineica2\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\programengineica2\\definitions.programengineica2.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

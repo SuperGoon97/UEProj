@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define PROGRAMENGINEICA2_ProgramEngineICA2Character_generated_h
 
-#define FID_GithubProjects_CapJam2024_CAPJAM2024_ProgramEngineICA2_Source_ProgramEngineICA2_ProgramEngineICA2Character_h_22_INCLASS_NO_PURE_DECLS \
+#define FID_ProgramEngineICA2_Source_ProgramEngineICA2_ProgramEngineICA2Character_h_22_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAProgramEngineICA2Character(); \
 	friend struct Z_Construct_UClass_AProgramEngineICA2Character_Statics; \
@@ -23,7 +23,7 @@ public: \
 	DECLARE_SERIALIZER(AProgramEngineICA2Character)
 
 
-#define FID_GithubProjects_CapJam2024_CAPJAM2024_ProgramEngineICA2_Source_ProgramEngineICA2_ProgramEngineICA2Character_h_22_ENHANCED_CONSTRUCTORS \
+#define FID_ProgramEngineICA2_Source_ProgramEngineICA2_ProgramEngineICA2Character_h_22_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	AProgramEngineICA2Character(AProgramEngineICA2Character&&); \
@@ -35,12 +35,12 @@ public: \
 	NO_API virtual ~AProgramEngineICA2Character();
 
 
-#define FID_GithubProjects_CapJam2024_CAPJAM2024_ProgramEngineICA2_Source_ProgramEngineICA2_ProgramEngineICA2Character_h_19_PROLOG
-#define FID_GithubProjects_CapJam2024_CAPJAM2024_ProgramEngineICA2_Source_ProgramEngineICA2_ProgramEngineICA2Character_h_22_GENERATED_BODY \
+#define FID_ProgramEngineICA2_Source_ProgramEngineICA2_ProgramEngineICA2Character_h_19_PROLOG
+#define FID_ProgramEngineICA2_Source_ProgramEngineICA2_ProgramEngineICA2Character_h_22_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_GithubProjects_CapJam2024_CAPJAM2024_ProgramEngineICA2_Source_ProgramEngineICA2_ProgramEngineICA2Character_h_22_INCLASS_NO_PURE_DECLS \
-	FID_GithubProjects_CapJam2024_CAPJAM2024_ProgramEngineICA2_Source_ProgramEngineICA2_ProgramEngineICA2Character_h_22_ENHANCED_CONSTRUCTORS \
+	FID_ProgramEngineICA2_Source_ProgramEngineICA2_ProgramEngineICA2Character_h_22_INCLASS_NO_PURE_DECLS \
+	FID_ProgramEngineICA2_Source_ProgramEngineICA2_ProgramEngineICA2Character_h_22_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -48,7 +48,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> PROGRAMENGINEICA2_API UClass* StaticClass<class AProgramEngineICA2Character>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_GithubProjects_CapJam2024_CAPJAM2024_ProgramEngineICA2_Source_ProgramEngineICA2_ProgramEngineICA2Character_h
+#define CURRENT_FILE_ID FID_ProgramEngineICA2_Source_ProgramEngineICA2_ProgramEngineICA2Character_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

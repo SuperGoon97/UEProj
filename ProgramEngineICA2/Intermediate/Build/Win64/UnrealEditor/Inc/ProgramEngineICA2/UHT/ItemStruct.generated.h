@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define PROGRAMENGINEICA2_ItemStruct_generated_h
 
-#define FID_GithubProjects_CapJam2024_CAPJAM2024_ProgramEngineICA2_Source_ProgramEngineICA2_ItemStruct_h_11_GENERATED_BODY \
+#define FID_ProgramEngineICA2_Source_ProgramEngineICA2_ItemStruct_h_11_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FItemStruct_Statics; \
 	PROGRAMENGINEICA2_API static class UScriptStruct* StaticStruct(); \
 	typedef FTableRowBase Super;
@@ -23,7 +23,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 template<> PROGRAMENGINEICA2_API UScriptStruct* StaticStruct<struct FItemStruct>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_GithubProjects_CapJam2024_CAPJAM2024_ProgramEngineICA2_Source_ProgramEngineICA2_ItemStruct_h
+#define CURRENT_FILE_ID FID_ProgramEngineICA2_Source_ProgramEngineICA2_ItemStruct_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

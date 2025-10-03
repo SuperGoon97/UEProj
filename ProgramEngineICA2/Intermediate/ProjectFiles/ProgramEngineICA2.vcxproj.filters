@@ -51,9 +51,9 @@
     <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioBlueprintDebuggerHelper\Private\VisualStudioBlueprintDebuggerHelperModule.cpp">
       <Filter>Plugins\VisualStudioTools\Source\VisualStudioBlueprintDebuggerHelper\Private</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioBlueprintDebuggerHelper\Private\VisualStudioBlueprintDebuggerHelperModule.h">
+    <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioBlueprintDebuggerHelper\Private\VisualStudioBlueprintDebuggerHelperModule.h">
       <Filter>Plugins\VisualStudioTools\Source\VisualStudioBlueprintDebuggerHelper\Private</Filter>
-    </ClInclude>
+    </ClCompile>
     <None Include="..\..\Plugins\VisualStudioTools\VisualStudioTools.uplugin">
       <Filter>Plugins\VisualStudioTools</Filter>
     </None>
@@ -75,122 +75,122 @@
     <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\BlueprintAssetHelper.cpp">
       <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\BlueprintAssetHelpers.h">
+    <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\BlueprintAssetHelpers.h">
       <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
-    </ClInclude>
+    </ClCompile>
     <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\BlueprintReferencesCommandlet.cpp">
       <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\BlueprintReferencesCommandlet.h">
+    <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\BlueprintReferencesCommandlet.h">
       <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\FSmartBSTR.h">
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\FSmartBSTR.h">
       <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
-    </ClInclude>
+    </ClCompile>
     <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\VisualStudioTools.cpp">
       <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\VisualStudioToolsBlueprintBreakpointExtension.cpp">
       <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\VisualStudioToolsBlueprintBreakpointExtension.h">
+    <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\VisualStudioToolsBlueprintBreakpointExtension.h">
       <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
-    </ClInclude>
+    </ClCompile>
     <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\VisualStudioToolsCommandlet.cpp">
       <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\VisualStudioToolsCommandlet.h">
+    <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\VisualStudioToolsCommandlet.h">
       <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
-    </ClInclude>
+    </ClCompile>
     <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\VisualStudioToolsCommandletBase.cpp">
       <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\VisualStudioToolsCommandletBase.h">
+    <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\VisualStudioToolsCommandletBase.h">
       <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
-    </ClInclude>
+    </ClCompile>
     <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\VSServerCommandlet.cpp">
       <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\VSServerCommandlet.h">
+    <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\VSServerCommandlet.h">
       <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
-    </ClInclude>
+    </ClCompile>
     <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\VSTestAdapterCommandlet.cpp">
       <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\VSTestAdapterCommandlet.h">
+    <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Private\VSTestAdapterCommandlet.h">
       <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Private</Filter>
-    </ClInclude>
+    </ClCompile>
     <Filter Include="Plugins\VisualStudioTools\Source\VisualStudioTools\Public">
       <UniqueIdentifier>{333EB5AC-492F-3ED7-9C7F-15701C1818EC}</UniqueIdentifier>
     </Filter>
-    <ClInclude Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Public\VisualStudioTools.h">
+    <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\Public\VisualStudioTools.h">
       <Filter>Plugins\VisualStudioTools\Source\VisualStudioTools\Public</Filter>
-    </ClInclude>
+    </ClCompile>
     <Filter Include="Source\ProgramEngineICA2">
       <UniqueIdentifier>{7FD5836A-6EEF-3E31-A532-721AD3CDDCA2}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\ProgramEngineICA2\InventoryComponent.cpp">
       <Filter>Source\ProgramEngineICA2</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\ProgramEngineICA2\InventoryComponent.h">
+    <ClCompile Include="..\..\Source\ProgramEngineICA2\InventoryComponent.h">
       <Filter>Source\ProgramEngineICA2</Filter>
-    </ClInclude>
+    </ClCompile>
     <ClCompile Include="..\..\Source\ProgramEngineICA2\Item.cpp">
       <Filter>Source\ProgramEngineICA2</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\ProgramEngineICA2\Item.h">
+    <ClCompile Include="..\..\Source\ProgramEngineICA2\Item.h">
       <Filter>Source\ProgramEngineICA2</Filter>
-    </ClInclude>
+    </ClCompile>
     <ClCompile Include="..\..\Source\ProgramEngineICA2\ItemStruct.cpp">
       <Filter>Source\ProgramEngineICA2</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\ProgramEngineICA2\ItemStruct.h">
+    <ClCompile Include="..\..\Source\ProgramEngineICA2\ItemStruct.h">
       <Filter>Source\ProgramEngineICA2</Filter>
-    </ClInclude>
+    </ClCompile>
     <None Include="..\..\Source\ProgramEngineICA2\ProgramEngineICA2.Build.cs">
       <Filter>Source\ProgramEngineICA2</Filter>
     </None>
     <ClCompile Include="..\..\Source\ProgramEngineICA2\ProgramEngineICA2.cpp">
       <Filter>Source\ProgramEngineICA2</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\ProgramEngineICA2\ProgramEngineICA2.h">
+    <ClCompile Include="..\..\Source\ProgramEngineICA2\ProgramEngineICA2.h">
       <Filter>Source\ProgramEngineICA2</Filter>
-    </ClInclude>
+    </ClCompile>
     <ClCompile Include="..\..\Source\ProgramEngineICA2\ProgramEngineICA2Character.cpp">
       <Filter>Source\ProgramEngineICA2</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\ProgramEngineICA2\ProgramEngineICA2Character.h">
+    <ClCompile Include="..\..\Source\ProgramEngineICA2\ProgramEngineICA2Character.h">
       <Filter>Source\ProgramEngineICA2</Filter>
-    </ClInclude>
+    </ClCompile>
     <ClCompile Include="..\..\Source\ProgramEngineICA2\ProgramEngineICA2GameMode.cpp">
       <Filter>Source\ProgramEngineICA2</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\ProgramEngineICA2\ProgramEngineICA2GameMode.h">
+    <ClCompile Include="..\..\Source\ProgramEngineICA2\ProgramEngineICA2GameMode.h">
       <Filter>Source\ProgramEngineICA2</Filter>
-    </ClInclude>
+    </ClCompile>
     <ClCompile Include="..\..\Source\ProgramEngineICA2\ProgramEngineICA2PlayerController.cpp">
       <Filter>Source\ProgramEngineICA2</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\ProgramEngineICA2\ProgramEngineICA2PlayerController.h">
+    <ClCompile Include="..\..\Source\ProgramEngineICA2\ProgramEngineICA2PlayerController.h">
       <Filter>Source\ProgramEngineICA2</Filter>
-    </ClInclude>
+    </ClCompile>
     <ClCompile Include="..\..\Source\ProgramEngineICA2\ProgramEngineICA2Projectile.cpp">
       <Filter>Source\ProgramEngineICA2</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\ProgramEngineICA2\ProgramEngineICA2Projectile.h">
+    <ClCompile Include="..\..\Source\ProgramEngineICA2\ProgramEngineICA2Projectile.h">
       <Filter>Source\ProgramEngineICA2</Filter>
-    </ClInclude>
+    </ClCompile>
     <ClCompile Include="..\..\Source\ProgramEngineICA2\TP_PickUpComponent.cpp">
       <Filter>Source\ProgramEngineICA2</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\ProgramEngineICA2\TP_PickUpComponent.h">
+    <ClCompile Include="..\..\Source\ProgramEngineICA2\TP_PickUpComponent.h">
       <Filter>Source\ProgramEngineICA2</Filter>
-    </ClInclude>
+    </ClCompile>
     <ClCompile Include="..\..\Source\ProgramEngineICA2\TP_WeaponComponent.cpp">
       <Filter>Source\ProgramEngineICA2</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\ProgramEngineICA2\TP_WeaponComponent.h">
+    <ClCompile Include="..\..\Source\ProgramEngineICA2\TP_WeaponComponent.h">
       <Filter>Source\ProgramEngineICA2</Filter>
-    </ClInclude>
+    </ClCompile>
   </ItemGroup>
 </Project>
