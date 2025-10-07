@@ -21,13 +21,13 @@ public:
 	
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
-	int InventorySize;
+	int32 InventorySize;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
 	bool bIsStackable;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
-	int MaxStackSize;
+	int32 MaxStackSize;
 
 
 
@@ -35,19 +35,19 @@ public:
 	TArray<UItem*> ItemArray;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Inventory")
-	TMap<FString, int> ItemCountMap;
+	TMap<FString, int32> ItemCountMap;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Inventory")
 	TMap<FString, UItem*> ItemMap;
 
 	UFUNCTION(BlueprintCallable, Category = "Inventory")
-	bool AddItem(UItem* NewItem, int Amount);
+	bool AddItem(UItem* NewItem, int32 Amount);
 
 	UFUNCTION()
-	int AddItemStackable(UItem* NewItem, FString ItemName, FString ItemString, int Amount);
+	int32 AddItemStackable(UItem* NewItem, FString ItemName, FString ItemString, int32 Amount);
 
 	UFUNCTION()
-	void AddNewItem(UItem* NewItem, FString ItemString, int Amount);
+	void AddNewItem(UItem* NewItem, FString ItemString, int32 Amount);
 
 	UFUNCTION()
 	bool FoundInMap(FString ItemName);
@@ -56,7 +56,7 @@ public:
 	TArray<FString> FindItemSerializedNamesFromItemName(FString ItemName);
 
 	UFUNCTION()
-	TMap<FString, int> FindItemCountsFromItemName(FString ItemName);
+	TMap<FString, int32> FindItemCountsFromItemName(FString ItemName);
 
 protected:
 	// Called when the game starts
