@@ -13,7 +13,6 @@ class PROGRAMENGINEICA2_API UInventoryComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
-
 public:	
 	// Sets default values for this component's properties
 	UInventoryComponent();
@@ -29,8 +28,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
 	int32 MaxStackSize;
 
-
-
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Inventory")
 	TArray<UItem*> ItemArray;
 
@@ -41,7 +38,7 @@ public:
 	TMap<FString, UItem*> ItemMap;
 
 	UFUNCTION(BlueprintCallable, Category = "Inventory")
-	bool AddItem(UItem* NewItem, int32 Amount);
+	void AddItem(UItem* NewItem, int32 Amount);
 
 	UFUNCTION()
 	int32 AddItemStackable(UItem* NewItem, FString ItemName, FString ItemString, int32 Amount);
