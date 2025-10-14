@@ -24,6 +24,8 @@ struct Z_Construct_UFunction_UInventoryComponent_AddItem_Statics
 	{
 		UItem* NewItem;
 		int32 Amount;
+		bool AllItemsStacked;
+		int32 Remainder;
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
@@ -33,17 +35,28 @@ struct Z_Construct_UFunction_UInventoryComponent_AddItem_Statics
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_NewItem;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_Amount;
+	static void NewProp_AllItemsStacked_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_AllItemsStacked;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_Remainder;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UInventoryComponent_AddItem_Statics::NewProp_NewItem = { "NewItem", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventAddItem_Parms, NewItem), Z_Construct_UClass_UItem_NoRegister, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UInventoryComponent_AddItem_Statics::NewProp_Amount = { "Amount", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventAddItem_Parms, Amount), METADATA_PARAMS(0, nullptr) };
+void Z_Construct_UFunction_UInventoryComponent_AddItem_Statics::NewProp_AllItemsStacked_SetBit(void* Obj)
+{
+	((InventoryComponent_eventAddItem_Parms*)Obj)->AllItemsStacked = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UInventoryComponent_AddItem_Statics::NewProp_AllItemsStacked = { "AllItemsStacked", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(InventoryComponent_eventAddItem_Parms), &Z_Construct_UFunction_UInventoryComponent_AddItem_Statics::NewProp_AllItemsStacked_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UInventoryComponent_AddItem_Statics::NewProp_Remainder = { "Remainder", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventAddItem_Parms, Remainder), METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UInventoryComponent_AddItem_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_AddItem_Statics::NewProp_NewItem,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_AddItem_Statics::NewProp_Amount,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_AddItem_Statics::NewProp_AllItemsStacked,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_AddItem_Statics::NewProp_Remainder,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_AddItem_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UInventoryComponent_AddItem_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UInventoryComponent, nullptr, "AddItem", nullptr, nullptr, Z_Construct_UFunction_UInventoryComponent_AddItem_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_AddItem_Statics::PropPointers), sizeof(Z_Construct_UFunction_UInventoryComponent_AddItem_Statics::InventoryComponent_eventAddItem_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_AddItem_Statics::Function_MetaDataParams), Z_Construct_UFunction_UInventoryComponent_AddItem_Statics::Function_MetaDataParams) };
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UInventoryComponent_AddItem_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UInventoryComponent, nullptr, "AddItem", nullptr, nullptr, Z_Construct_UFunction_UInventoryComponent_AddItem_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_AddItem_Statics::PropPointers), sizeof(Z_Construct_UFunction_UInventoryComponent_AddItem_Statics::InventoryComponent_eventAddItem_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_AddItem_Statics::Function_MetaDataParams), Z_Construct_UFunction_UInventoryComponent_AddItem_Statics::Function_MetaDataParams) };
 static_assert(sizeof(Z_Construct_UFunction_UInventoryComponent_AddItem_Statics::InventoryComponent_eventAddItem_Parms) < MAX_uint16);
 UFunction* Z_Construct_UFunction_UInventoryComponent_AddItem()
 {
@@ -58,9 +71,11 @@ DEFINE_FUNCTION(UInventoryComponent::execAddItem)
 {
 	P_GET_OBJECT(UItem,Z_Param_NewItem);
 	P_GET_PROPERTY(FIntProperty,Z_Param_Amount);
+	P_GET_UBOOL_REF(Z_Param_Out_AllItemsStacked);
+	P_GET_PROPERTY_REF(FIntProperty,Z_Param_Out_Remainder);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	P_THIS->AddItem(Z_Param_NewItem,Z_Param_Amount);
+	P_THIS->AddItem(Z_Param_NewItem,Z_Param_Amount,Z_Param_Out_AllItemsStacked,Z_Param_Out_Remainder);
 	P_NATIVE_END;
 }
 // End Class UInventoryComponent Function AddItem
@@ -74,6 +89,7 @@ struct Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics
 		FString ItemName;
 		FString ItemString;
 		int32 Amount;
+		int32 Remainder;
 		int32 ReturnValue;
 	};
 #if WITH_METADATA
@@ -85,6 +101,7 @@ struct Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics
 	static const UECodeGen_Private::FStrPropertyParams NewProp_ItemName;
 	static const UECodeGen_Private::FStrPropertyParams NewProp_ItemString;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_Amount;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_Remainder;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -93,16 +110,18 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UInventoryC
 const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::NewProp_ItemName = { "ItemName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventAddItemStackable_Parms, ItemName), METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::NewProp_ItemString = { "ItemString", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventAddItemStackable_Parms, ItemString), METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::NewProp_Amount = { "Amount", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventAddItemStackable_Parms, Amount), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::NewProp_Remainder = { "Remainder", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventAddItemStackable_Parms, Remainder), METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventAddItemStackable_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::NewProp_NewItem,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::NewProp_ItemName,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::NewProp_ItemString,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::NewProp_Amount,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::NewProp_Remainder,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::NewProp_ReturnValue,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UInventoryComponent, nullptr, "AddItemStackable", nullptr, nullptr, Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::PropPointers), sizeof(Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::InventoryComponent_eventAddItemStackable_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::Function_MetaDataParams), Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::Function_MetaDataParams) };
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UInventoryComponent, nullptr, "AddItemStackable", nullptr, nullptr, Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::PropPointers), sizeof(Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::InventoryComponent_eventAddItemStackable_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::Function_MetaDataParams), Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::Function_MetaDataParams) };
 static_assert(sizeof(Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::InventoryComponent_eventAddItemStackable_Parms) < MAX_uint16);
 UFunction* Z_Construct_UFunction_UInventoryComponent_AddItemStackable()
 {
@@ -119,9 +138,10 @@ DEFINE_FUNCTION(UInventoryComponent::execAddItemStackable)
 	P_GET_PROPERTY(FStrProperty,Z_Param_ItemName);
 	P_GET_PROPERTY(FStrProperty,Z_Param_ItemString);
 	P_GET_PROPERTY(FIntProperty,Z_Param_Amount);
+	P_GET_PROPERTY_REF(FIntProperty,Z_Param_Out_Remainder);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	*(int32*)Z_Param__Result=P_THIS->AddItemStackable(Z_Param_NewItem,Z_Param_ItemName,Z_Param_ItemString,Z_Param_Amount);
+	*(int32*)Z_Param__Result=P_THIS->AddItemStackable(Z_Param_NewItem,Z_Param_ItemName,Z_Param_ItemString,Z_Param_Amount,Z_Param_Out_Remainder);
 	P_NATIVE_END;
 }
 // End Class UInventoryComponent Function AddItemStackable
@@ -398,8 +418,8 @@ struct Z_Construct_UClass_UInventoryComponent_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_UInventoryComponent_AddItem, "AddItem" }, // 3861697295
-		{ &Z_Construct_UFunction_UInventoryComponent_AddItemStackable, "AddItemStackable" }, // 3691827662
+		{ &Z_Construct_UFunction_UInventoryComponent_AddItem, "AddItem" }, // 2039877982
+		{ &Z_Construct_UFunction_UInventoryComponent_AddItemStackable, "AddItemStackable" }, // 3751947717
 		{ &Z_Construct_UFunction_UInventoryComponent_AddNewItem, "AddNewItem" }, // 358523196
 		{ &Z_Construct_UFunction_UInventoryComponent_FindItemCountsFromItemName, "FindItemCountsFromItemName" }, // 987665476
 		{ &Z_Construct_UFunction_UInventoryComponent_FindItemSerializedNamesFromItemName, "FindItemSerializedNamesFromItemName" }, // 4159682782
@@ -480,10 +500,10 @@ UInventoryComponent::~UInventoryComponent() {}
 struct Z_CompiledInDeferFile_FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UInventoryComponent, UInventoryComponent::StaticClass, TEXT("UInventoryComponent"), &Z_Registration_Info_UClass_UInventoryComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInventoryComponent), 3240242624U) },
+		{ Z_Construct_UClass_UInventoryComponent, UInventoryComponent::StaticClass, TEXT("UInventoryComponent"), &Z_Registration_Info_UClass_UInventoryComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInventoryComponent), 4230283692U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_2209478998(TEXT("/Script/ProgramEngineICA2"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_3200816541(TEXT("/Script/ProgramEngineICA2"),
 	Z_CompiledInDeferFile_FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

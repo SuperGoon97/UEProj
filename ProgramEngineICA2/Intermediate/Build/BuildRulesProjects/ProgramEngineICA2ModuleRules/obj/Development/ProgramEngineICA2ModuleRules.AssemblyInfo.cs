@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProgramEngineICA2ModuleRules")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Development")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+588cf9f925e91ce6432d90abd79dfa6f20d459f2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7c00b76a75f7df457fc44624cc5a5fbb7004e0d4")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProgramEngineICA2ModuleRules")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProgramEngineICA2ModuleRules")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

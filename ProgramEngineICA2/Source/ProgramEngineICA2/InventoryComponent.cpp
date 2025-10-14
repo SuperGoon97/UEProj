@@ -16,9 +16,11 @@ UInventoryComponent::UInventoryComponent()
 	// ...
 }
 
-void UInventoryComponent::AddItem(UItem* NewItem, int32 Amount)
+void UInventoryComponent::AddItem(UItem* NewItem, int32 Amount, bool& AllItemsStacked, int32& Remainder)
 {
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("Attempting to add item: %s (Amount: %d)"), *NewItem->ItemData.ItemName, Amount));
+
+	Remainder = Amount;
 
 	if (NewItem != nullptr) 
 	{
@@ -32,79 +34,79 @@ void UInventoryComponent::AddItem(UItem* NewItem, int32 Amount)
 
 		ItemSerializedName.Append(FString::FromInt(0));
 
-		bool bIsItemStackable = NewItem->ItemData.bIsStackable;
-
-		int32 StackAmount;
-		int32 Remainder = 0;
+		int32 AmountToTryAdd;
 
 		for (int32 i = 0; i < ISlotsRequired; i++)
 		{
-			if (Amount <= 0) { return ; } // Item amount invalid break
+			if (Amount <= 0) { AllItemsStacked = true; return; } // Item amount is zero or less, nothing to add. Remainder already set to Amount at start of function
 
-			Remainder = 0;
-			StackAmount = Amount;
+			if (Amount > MaxStackSize) { AmountToTryAdd = MaxStackSize; }
+			else { AmountToTryAdd = Amount; }
 
-			if (Amount > MaxStackSize) { StackAmount = MaxStackSize; }
-
-			if (bIsStackable && bIsItemStackable) { Remainder = AddItemStackable(NewItem, ItemName, ItemSerializedName, StackAmount); }
+			if (bIsStackable && NewItem->ItemData.bIsStackable) { Amount -= AddItemStackable(NewItem, ItemName, ItemSerializedName, AmountToTryAdd, Remainder); }
 			else if (ItemCountMap.Num() < InventorySize)
 			{
-				StackAmount = 1; // Non-stackable items can only be added one at a time
-				AddNewItem(NewItem, ItemSerializedName, StackAmount);
-
+				AmountToTryAdd = 1; // Non-stackable items can only be added one at a time
+				AddNewItem(NewItem, ItemSerializedName, AmountToTryAdd);
+				Amount -= AmountToTryAdd;
+				Remainder = Amount;
 				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Added item: %s"), *NewItem->ItemData.ItemName));
 			}
 			else 
 			{
+				AllItemsStacked = false;
+				Remainder = Amount;
 				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("Inventory Full!"));
 				return;
 			}
 
-			Amount -= StackAmount;
+			Amount -= AmountToTryAdd;
 			Amount += Remainder;
 		}
 
+		AllItemsStacked = true;
+		Remainder = 0;
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Added items successfully")));
 		return; // Items added successfully
 	}
-
+	AllItemsStacked = false;
+	Remainder = Amount;
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Invalid item!"));
 	return ; // Invalid item
 }
 
-int32 UInventoryComponent::AddItemStackable(UItem* NewItem, FString ItemName, FString ItemSerializedName,int32 Amount)
+int32 UInventoryComponent::AddItemStackable(UItem* NewItem, FString ItemName, FString ItemSerializedName,int32 Amount, int32& Remainder)
 {
 	// GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("Attempting to stack item: %s (Amount: %d)"), *ItemName, Amount));
 
 	if (FoundInMap(ItemName))
 	{
-		int32 Remainder = Amount;
-
 		TMap<FString, int32> MapOfStackSerializedNamesWithInt = TMap<FString, int32>();
 		MapOfStackSerializedNamesWithInt = FindItemCountsFromItemName(ItemName);
-		// Issue is its finding item0 needs to check all instances of item[n] to find one that has room to stack, make function for this tmrrw
 		
+		int32 ItterationRemainder = 0;
 		for (TPair<FString,int32>& Map : MapOfStackSerializedNamesWithInt)
 		{
-			GEngine->AddOnScreenDebugMessage(-1, 500.f, FColor::Purple, FString::Printf(TEXT("Checking stack: %s (Count: %d)"), *Map.Key, Map.Value));
-			// if (ItemCountMap.Contains(*Map.Key)) { GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Purple, FString::Printf(TEXT("Map contains %s"),*Map.Key)); }
-			Amount = Remainder;
 			if (Map.Value < MaxStackSize)
 			{
-				int32 countspace = MaxStackSize - ItemCountMap[*Map.Key];
-				if ((Amount - countspace) >= 0) { Remainder = Amount - countspace; } // calculate remainder if amount exceeds available space in stack
-				if (Remainder < 0) { Remainder = 0; } // no negative remainder
-				if (Amount > countspace) { Amount = countspace; } // limit amount to available space in stack
-				if (Amount < countspace) { Remainder = 0; } // if amount is less than available space in stack no remainder
+				Amount += ItterationRemainder; // add itterationremainder from last itteration to amount to try and stack again
+				ItterationRemainder = 0; // reset itterationremainder
+
+				int32 Countspace = MaxStackSize - ItemCountMap[*Map.Key];
+				int32 Difference = Amount - Countspace;
+				if (Difference >= 0) { ItterationRemainder = Amount - Countspace; } // calculate remainder if amount exceeds available space in stack
+				if (ItterationRemainder < 0) { ItterationRemainder = 0; } // no negative itterationremainder
+				if (Amount > Countspace) { Amount = Countspace; } // limit amount to available space in stack
+				if (Amount < Countspace) { ItterationRemainder = 0; } // if amount is less than available space in stack no itterationremainder
 				ItemCountMap[*Map.Key] += Amount;
 
 				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Stacked item: %s (Count: %d)"), *ItemName, ItemCountMap[*Map.Key]));
 			}
 		}
 
-		if (Remainder <= 0) 
+		if (ItterationRemainder <= 0) 
 		{ 
-			return 0; // All items stacked successfully
+			return Amount; // All items stacked successfully
 		}
 
 		if (ItemCountMap.Num() < InventorySize)
@@ -119,20 +121,20 @@ int32 UInventoryComponent::AddItemStackable(UItem* NewItem, FString ItemName, FS
 					AddNewItem(NewItem, ItemSerializedName, Amount);
 
 					GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Added new stack for item: %s"), *ItemSerializedName));
-					return 0; // New stack created successfully
+					return Amount; // New stack created successfully
 				}
 			}
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Error finding stack slot!"));
-			return Remainder; // No available stack slot or error
+			return 0; // No available stack slot or error
 		}
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Max stack size reached for item: %s"), *ItemName));
-		return Remainder; // Inventory Full
+		return 0; // Inventory Full
 	}
 	else if (ItemCountMap.Num() < InventorySize)
 	{
 		AddNewItem(NewItem, ItemSerializedName, Amount);
 	}
-	return 0;
+	return Amount;
 }
 
 bool UInventoryComponent::FoundInMap(FString ItemName)
