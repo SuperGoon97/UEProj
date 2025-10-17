@@ -47,23 +47,35 @@ void UInventoryComponent::AddItem(UItem* NewItem, int32 Amount, bool& AllItemsSt
 			else if (ItemCountMap.Num() < InventorySize)
 			{
 				AmountToTryAdd = 1; // Non-stackable items can only be added one at a time
-				AddNewItem(NewItem, ItemSerializedName, AmountToTryAdd);
-				Amount -= AmountToTryAdd;
-				Remainder = Amount;
-				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Added item: %s"), *NewItem->ItemData.ItemName));
+				for (int32 j = 1; j <= InventorySize; j++)
+				{
+					ItemSerializedName = ItemName;
+					ItemSerializedName.Append(FString::FromInt(j));
+
+					if (!ItemCountMap.Contains(ItemSerializedName))
+					{
+						AddNewItem(NewItem, ItemSerializedName, AmountToTryAdd);
+
+						GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Added new stack for item: %s"), *ItemSerializedName));
+					}
+					Amount -= AmountToTryAdd;
+					Remainder = Amount;
+					GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Added item: %s"), *NewItem->ItemData.ItemName));
+				}
 			}
 			else 
 			{
 				AllItemsStacked = false;
 				Remainder = Amount;
-				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("Inventory Full!"));
+				GEngine->AddOnScreenDebugMessage(-1, 50.f, FColor::Yellow, TEXT("Inventory Full!"));
 				return;
 			}
 
-			Amount -= AmountToTryAdd;
-			Amount += Remainder;
 		}
 
+		FString RemainderTxt = FString::FromInt(Remainder);
+
+		GEngine->AddOnScreenDebugMessage(-1, 200.f, FColor::Emerald, FString::Printf(TEXT("Remainder = %s"), *RemainderTxt));
 		AllItemsStacked = true;
 		Remainder = 0;
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Added items successfully")));
