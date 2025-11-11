@@ -40,6 +40,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Inventory")
 	void AddItem(UItem* NewItem, int32 Amount,bool& AllItemsStacked, int32& Remainder);
 
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void RemoveItem(FString ItemName, int32 AmountToRemove);
+
 	UFUNCTION()
 	int32 AddItemStackable(UItem* NewItem, FString ItemName, FString ItemString, int32 Amount, int32& Remainder);
 

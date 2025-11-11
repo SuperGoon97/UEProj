@@ -43,7 +43,21 @@ void UInventoryComponent::AddItem(UItem* NewItem, int32 Amount, bool& AllItemsSt
 			if (Amount > MaxStackSize) { AmountToTryAdd = MaxStackSize; }
 			else { AmountToTryAdd = Amount; }
 
-			if (bIsStackable && NewItem->ItemData.bIsStackable) { Amount -= AddItemStackable(NewItem, ItemName, ItemSerializedName, AmountToTryAdd, Remainder); }
+			if (bIsStackable && NewItem->ItemData.bIsStackable) 
+			{	
+				int32 ItemsAdded = AddItemStackable(NewItem, ItemName, ItemSerializedName, AmountToTryAdd, Remainder);
+				if (ItemsAdded == 0)
+				{ 
+					AllItemsStacked = false; 
+					Remainder = Amount; 
+					GEngine->AddOnScreenDebugMessage(-1, 50.f, FColor::Yellow, TEXT("Inventory Full!"));
+					return; 
+				}
+				Amount -= ItemsAdded;
+				FString AmountTxt = FString::FromInt(Amount);
+				GEngine->AddOnScreenDebugMessage(-1, 50.f, FColor::Black, FString::Printf(TEXT("Amount = %s"), *AmountTxt));
+			}
+			
 			else if (ItemCountMap.Num() < InventorySize)
 			{
 				AmountToTryAdd = 1; // Non-stackable items can only be added one at a time
@@ -87,8 +101,14 @@ void UInventoryComponent::AddItem(UItem* NewItem, int32 Amount, bool& AllItemsSt
 	return ; // Invalid item
 }
 
+void UInventoryComponent::RemoveItem(FString ItemName, int32 AmountToRemove)
+{
+	
+}
+
 int32 UInventoryComponent::AddItemStackable(UItem* NewItem, FString ItemName, FString ItemSerializedName,int32 Amount, int32& Remainder)
 {
+	int32 InitialAmount = Amount;
 	// GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("Attempting to stack item: %s (Amount: %d)"), *ItemName, Amount));
 
 	if (FoundInMap(ItemName))
@@ -116,9 +136,9 @@ int32 UInventoryComponent::AddItemStackable(UItem* NewItem, FString ItemName, FS
 			}
 		}
 
-		if (ItterationRemainder <= 0) 
+		if (Amount <= 0) 
 		{ 
-			return Amount; // All items stacked successfully
+			return InitialAmount; // All items stacked successfully
 		}
 
 		if (ItemCountMap.Num() < InventorySize)
