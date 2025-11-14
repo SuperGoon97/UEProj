@@ -22,6 +22,7 @@ class UItem;
 	DECLARE_FUNCTION(execFoundInMap); \
 	DECLARE_FUNCTION(execAddNewItem); \
 	DECLARE_FUNCTION(execAddItemStackable); \
+	DECLARE_FUNCTION(execRemoveItem); \
 	DECLARE_FUNCTION(execAddItem);
 
 
