@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Engine/Texture.h"
 #include "ItemStruct.generated.h"
 
 USTRUCT(BlueprintType)
