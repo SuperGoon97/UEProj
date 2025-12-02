@@ -16,7 +16,7 @@ class PROGRAMENGINEICA2_API UItem : public UObject
 	GENERATED_BODY()
 
 public:
-	
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item Data")
 	FItemStruct ItemData;
 };

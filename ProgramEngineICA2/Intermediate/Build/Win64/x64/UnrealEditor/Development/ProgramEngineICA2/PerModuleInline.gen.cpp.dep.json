@@ -1,12 +1,12 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\d3742149\\source\\ueproj\\programengineica2\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\programengineica2\\permoduleinline.gen.cpp",
+        "Source": "g:\\school\\year2\\ueproj\\programengineica2\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\programengineica2\\permoduleinline.gen.cpp",
         "ProvidedModule": "",
-        "PCH": "c:\\users\\d3742149\\source\\ueproj\\programengineica2\\intermediate\\build\\win64\\x64\\programengineica2editor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.inclorderunreal5_4.h.pch",
+        "PCH": "g:\\school\\year2\\ueproj\\programengineica2\\intermediate\\build\\win64\\x64\\programengineica2editor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.inclorderunreal5_4.h.pch",
         "Includes": [
-            "c:\\users\\d3742149\\source\\ueproj\\programengineica2\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\programengineica2\\definitions.programengineica2.h",
-            "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\core\\public\\hal\\permoduleinline.inl"
+            "g:\\school\\year2\\ueproj\\programengineica2\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\programengineica2\\definitions.programengineica2.h",
+            "e:\\epicgames\\epic games\\ue_5.5\\engine\\source\\runtime\\core\\public\\hal\\permoduleinline.inl"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Item.h"
+#include "SlotStruct.h"
 #include "Components/ActorComponent.h"
 #include "InventoryComponent.generated.h"
 
@@ -17,7 +17,7 @@ public:
 	// Sets default values for this component's properties
 	UInventoryComponent();
 
-	
+	// Blueprintable properties
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
 	int32 InventorySize;
@@ -29,28 +29,44 @@ public:
 	int32 MaxStackSize;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Inventory")
-	TArray<UItem*> ItemArray;
+	TMap<FString, FSlotStruct> SlotMap;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Inventory")
-	TMap<FString, int32> ItemCountMap;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Inventory")
-	TMap<FString, UItem*> ItemMap;
-
+	// Blueprintable functions
 	UFUNCTION(BlueprintCallable, Category = "Inventory")
 	void AddItem(UItem* NewItem, int32 Amount,bool& AllItemsStacked, int32& Remainder);
 
-	UFUNCTION(BlueprintCallable, Category = "Inventory")
-	void RemoveItem(FString ItemName, int32 AmountToRemove);
+	UFUNCTION(BlueprintCallable,Category = "Inventory")
+	bool GetItemAmount(UItem* Item, int32& Amount);
 
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	bool GetItemAmountByName(FString ItemName, int32& Amount);
+
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	TArray<FSlotStruct> GetAllItems();
+
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void RemoveItem(UItem* Item, int32 AmountToRemove);
+	
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void RemoveItemByName(FString ItemName, int32 AmountToRemove);
+
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void RemoveAllItems();
+
+
+	// Helper functions
 	UFUNCTION()
-	int32 AddItemStackable(UItem* NewItem, FString ItemName, FString ItemString, int32 Amount, int32& Remainder);
+	int32 AddItemStackable(UItem* NewItem, FString ItemString, int32 Amount, int32& Remainder);
 
 	UFUNCTION()
 	void AddNewItem(UItem* NewItem, FString ItemString, int32 Amount);
 
 	UFUNCTION()
-	bool FoundInMap(FString ItemName);
+	bool FoundInMap(UItem* Item);
+
+	UFUNCTION()
+	int32 GetFirstEmptySlotIndex();
 
 	UFUNCTION()
 	TArray<FString> FindItemSerializedNamesFromItemName(FString ItemName);

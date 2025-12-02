@@ -1,13 +1,13 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\d3742149\\source\\ueproj\\programengineica2\\intermediate\\build\\win64\\unrealeditor\\inc\\programengineica2\\uht\\tp_weaponcomponent.gen.cpp",
+        "Source": "g:\\school\\year2\\ueproj\\programengineica2\\intermediate\\build\\win64\\unrealeditor\\inc\\programengineica2\\uht\\tp_weaponcomponent.gen.cpp",
         "ProvidedModule": "",
-        "PCH": "c:\\users\\d3742149\\source\\ueproj\\programengineica2\\intermediate\\build\\win64\\x64\\programengineica2editor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.inclorderunreal5_4.h.pch",
+        "PCH": "g:\\school\\year2\\ueproj\\programengineica2\\intermediate\\build\\win64\\x64\\programengineica2editor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.inclorderunreal5_4.h.pch",
         "Includes": [
-            "c:\\users\\d3742149\\source\\ueproj\\programengineica2\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\programengineica2\\definitions.programengineica2.h",
-            "c:\\users\\d3742149\\source\\ueproj\\programengineica2\\source\\programengineica2\\tp_weaponcomponent.h",
-            "c:\\users\\d3742149\\source\\ueproj\\programengineica2\\intermediate\\build\\win64\\unrealeditor\\inc\\programengineica2\\uht\\tp_weaponcomponent.generated.h"
+            "g:\\school\\year2\\ueproj\\programengineica2\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\programengineica2\\definitions.programengineica2.h",
+            "g:\\school\\year2\\ueproj\\programengineica2\\source\\programengineica2\\tp_weaponcomponent.h",
+            "g:\\school\\year2\\ueproj\\programengineica2\\intermediate\\build\\win64\\unrealeditor\\inc\\programengineica2\\uht\\tp_weaponcomponent.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

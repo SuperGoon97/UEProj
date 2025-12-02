@@ -51,7 +51,7 @@ struct Z_Construct_UClass_UItem_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UItem_Statics::NewProp_ItemData = { "ItemData", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UItem, ItemData), Z_Construct_UScriptStruct_FItemStruct, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemData_MetaData), NewProp_ItemData_MetaData) }; // 2924732459
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UItem_Statics::NewProp_ItemData = { "ItemData", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UItem, ItemData), Z_Construct_UScriptStruct_FItemStruct, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemData_MetaData), NewProp_ItemData_MetaData) }; // 3840417054
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UItem_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UItem_Statics::NewProp_ItemData,
 };
@@ -94,14 +94,14 @@ UItem::~UItem() {}
 // End Class UItem
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_Users_D3742149_Source_UEProj_ProgramEngineICA2_Source_ProgramEngineICA2_Item_h_Statics
+struct Z_CompiledInDeferFile_FID_ProgramEngineICA2_Source_ProgramEngineICA2_Item_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UItem, UItem::StaticClass, TEXT("UItem"), &Z_Registration_Info_UClass_UItem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UItem), 853489166U) },
+		{ Z_Construct_UClass_UItem, UItem::StaticClass, TEXT("UItem"), &Z_Registration_Info_UClass_UItem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UItem), 1620767177U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_D3742149_Source_UEProj_ProgramEngineICA2_Source_ProgramEngineICA2_Item_h_2408059521(TEXT("/Script/ProgramEngineICA2"),
-	Z_CompiledInDeferFile_FID_Users_D3742149_Source_UEProj_ProgramEngineICA2_Source_ProgramEngineICA2_Item_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_D3742149_Source_UEProj_ProgramEngineICA2_Source_ProgramEngineICA2_Item_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ProgramEngineICA2_Source_ProgramEngineICA2_Item_h_2650934920(TEXT("/Script/ProgramEngineICA2"),
+	Z_CompiledInDeferFile_FID_ProgramEngineICA2_Source_ProgramEngineICA2_Item_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ProgramEngineICA2_Source_ProgramEngineICA2_Item_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

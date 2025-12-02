@@ -6,6 +6,7 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "ProgramEngineICA2/InventoryComponent.h"
+#include "ProgramEngineICA2/SlotStruct.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeInventoryComponent() {}
 
@@ -14,6 +15,7 @@ ENGINE_API UClass* Z_Construct_UClass_UActorComponent();
 PROGRAMENGINEICA2_API UClass* Z_Construct_UClass_UInventoryComponent();
 PROGRAMENGINEICA2_API UClass* Z_Construct_UClass_UInventoryComponent_NoRegister();
 PROGRAMENGINEICA2_API UClass* Z_Construct_UClass_UItem_NoRegister();
+PROGRAMENGINEICA2_API UScriptStruct* Z_Construct_UScriptStruct_FSlotStruct();
 UPackage* Z_Construct_UPackage__Script_ProgramEngineICA2();
 // End Cross Module References
 
@@ -30,7 +32,13 @@ struct Z_Construct_UFunction_UInventoryComponent_AddItem_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Inventory" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Blueprintable functions\n" },
+#endif
 		{ "ModuleRelativePath", "InventoryComponent.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Blueprintable functions" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_NewItem;
@@ -86,7 +94,6 @@ struct Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics
 	struct InventoryComponent_eventAddItemStackable_Parms
 	{
 		UItem* NewItem;
-		FString ItemName;
 		FString ItemString;
 		int32 Amount;
 		int32 Remainder;
@@ -94,11 +101,16 @@ struct Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Helper functions\n" },
+#endif
 		{ "ModuleRelativePath", "InventoryComponent.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Helper functions" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_NewItem;
-	static const UECodeGen_Private::FStrPropertyParams NewProp_ItemName;
 	static const UECodeGen_Private::FStrPropertyParams NewProp_ItemString;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_Amount;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_Remainder;
@@ -107,14 +119,12 @@ struct Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::NewProp_NewItem = { "NewItem", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventAddItemStackable_Parms, NewItem), Z_Construct_UClass_UItem_NoRegister, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::NewProp_ItemName = { "ItemName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventAddItemStackable_Parms, ItemName), METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::NewProp_ItemString = { "ItemString", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventAddItemStackable_Parms, ItemString), METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::NewProp_Amount = { "Amount", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventAddItemStackable_Parms, Amount), METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::NewProp_Remainder = { "Remainder", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventAddItemStackable_Parms, Remainder), METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventAddItemStackable_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::NewProp_NewItem,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::NewProp_ItemName,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::NewProp_ItemString,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::NewProp_Amount,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_AddItemStackable_Statics::NewProp_Remainder,
@@ -135,13 +145,12 @@ UFunction* Z_Construct_UFunction_UInventoryComponent_AddItemStackable()
 DEFINE_FUNCTION(UInventoryComponent::execAddItemStackable)
 {
 	P_GET_OBJECT(UItem,Z_Param_NewItem);
-	P_GET_PROPERTY(FStrProperty,Z_Param_ItemName);
 	P_GET_PROPERTY(FStrProperty,Z_Param_ItemString);
 	P_GET_PROPERTY(FIntProperty,Z_Param_Amount);
 	P_GET_PROPERTY_REF(FIntProperty,Z_Param_Out_Remainder);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	*(int32*)Z_Param__Result=P_THIS->AddItemStackable(Z_Param_NewItem,Z_Param_ItemName,Z_Param_ItemString,Z_Param_Amount,Z_Param_Out_Remainder);
+	*(int32*)Z_Param__Result=P_THIS->AddItemStackable(Z_Param_NewItem,Z_Param_ItemString,Z_Param_Amount,Z_Param_Out_Remainder);
 	P_NATIVE_END;
 }
 // End Class UInventoryComponent Function AddItemStackable
@@ -304,7 +313,7 @@ struct Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics
 {
 	struct InventoryComponent_eventFoundInMap_Parms
 	{
-		FString ItemName;
+		UItem* Item;
 		bool ReturnValue;
 	};
 #if WITH_METADATA
@@ -312,20 +321,20 @@ struct Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics
 		{ "ModuleRelativePath", "InventoryComponent.h" },
 	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FStrPropertyParams NewProp_ItemName;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_Item;
 	static void NewProp_ReturnValue_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics::NewProp_ItemName = { "ItemName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventFoundInMap_Parms, ItemName), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics::NewProp_Item = { "Item", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventFoundInMap_Parms, Item), Z_Construct_UClass_UItem_NoRegister, METADATA_PARAMS(0, nullptr) };
 void Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics::NewProp_ReturnValue_SetBit(void* Obj)
 {
 	((InventoryComponent_eventFoundInMap_Parms*)Obj)->ReturnValue = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(InventoryComponent_eventFoundInMap_Parms), &Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics::NewProp_ItemName,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics::NewProp_Item,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics::NewProp_ReturnValue,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_FoundInMap_Statics::PropPointers) < 2048);
@@ -342,21 +351,165 @@ UFunction* Z_Construct_UFunction_UInventoryComponent_FoundInMap()
 }
 DEFINE_FUNCTION(UInventoryComponent::execFoundInMap)
 {
-	P_GET_PROPERTY(FStrProperty,Z_Param_ItemName);
+	P_GET_OBJECT(UItem,Z_Param_Item);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	*(bool*)Z_Param__Result=P_THIS->FoundInMap(Z_Param_ItemName);
+	*(bool*)Z_Param__Result=P_THIS->FoundInMap(Z_Param_Item);
 	P_NATIVE_END;
 }
 // End Class UInventoryComponent Function FoundInMap
 
-// Begin Class UInventoryComponent Function RemoveItem
-struct Z_Construct_UFunction_UInventoryComponent_RemoveItem_Statics
+// Begin Class UInventoryComponent Function GetAllItems
+struct Z_Construct_UFunction_UInventoryComponent_GetAllItems_Statics
 {
-	struct InventoryComponent_eventRemoveItem_Parms
+	struct InventoryComponent_eventGetAllItems_Parms
+	{
+		TArray<FSlotStruct> ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Inventory" },
+		{ "ModuleRelativePath", "InventoryComponent.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue_Inner;
+	static const UECodeGen_Private::FArrayPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UInventoryComponent_GetAllItems_Statics::NewProp_ReturnValue_Inner = { "ReturnValue", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FSlotStruct, METADATA_PARAMS(0, nullptr) }; // 402799882
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UInventoryComponent_GetAllItems_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventGetAllItems_Parms, ReturnValue), EArrayPropertyFlags::None, METADATA_PARAMS(0, nullptr) }; // 402799882
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UInventoryComponent_GetAllItems_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_GetAllItems_Statics::NewProp_ReturnValue_Inner,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_GetAllItems_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_GetAllItems_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UInventoryComponent_GetAllItems_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UInventoryComponent, nullptr, "GetAllItems", nullptr, nullptr, Z_Construct_UFunction_UInventoryComponent_GetAllItems_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_GetAllItems_Statics::PropPointers), sizeof(Z_Construct_UFunction_UInventoryComponent_GetAllItems_Statics::InventoryComponent_eventGetAllItems_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_GetAllItems_Statics::Function_MetaDataParams), Z_Construct_UFunction_UInventoryComponent_GetAllItems_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UInventoryComponent_GetAllItems_Statics::InventoryComponent_eventGetAllItems_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UInventoryComponent_GetAllItems()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UInventoryComponent_GetAllItems_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UInventoryComponent::execGetAllItems)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(TArray<FSlotStruct>*)Z_Param__Result=P_THIS->GetAllItems();
+	P_NATIVE_END;
+}
+// End Class UInventoryComponent Function GetAllItems
+
+// Begin Class UInventoryComponent Function GetFirstEmptySlotIndex
+struct Z_Construct_UFunction_UInventoryComponent_GetFirstEmptySlotIndex_Statics
+{
+	struct InventoryComponent_eventGetFirstEmptySlotIndex_Parms
+	{
+		int32 ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "InventoryComponent.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UInventoryComponent_GetFirstEmptySlotIndex_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventGetFirstEmptySlotIndex_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UInventoryComponent_GetFirstEmptySlotIndex_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_GetFirstEmptySlotIndex_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_GetFirstEmptySlotIndex_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UInventoryComponent_GetFirstEmptySlotIndex_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UInventoryComponent, nullptr, "GetFirstEmptySlotIndex", nullptr, nullptr, Z_Construct_UFunction_UInventoryComponent_GetFirstEmptySlotIndex_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_GetFirstEmptySlotIndex_Statics::PropPointers), sizeof(Z_Construct_UFunction_UInventoryComponent_GetFirstEmptySlotIndex_Statics::InventoryComponent_eventGetFirstEmptySlotIndex_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_GetFirstEmptySlotIndex_Statics::Function_MetaDataParams), Z_Construct_UFunction_UInventoryComponent_GetFirstEmptySlotIndex_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UInventoryComponent_GetFirstEmptySlotIndex_Statics::InventoryComponent_eventGetFirstEmptySlotIndex_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UInventoryComponent_GetFirstEmptySlotIndex()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UInventoryComponent_GetFirstEmptySlotIndex_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UInventoryComponent::execGetFirstEmptySlotIndex)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(int32*)Z_Param__Result=P_THIS->GetFirstEmptySlotIndex();
+	P_NATIVE_END;
+}
+// End Class UInventoryComponent Function GetFirstEmptySlotIndex
+
+// Begin Class UInventoryComponent Function GetItemAmount
+struct Z_Construct_UFunction_UInventoryComponent_GetItemAmount_Statics
+{
+	struct InventoryComponent_eventGetItemAmount_Parms
+	{
+		UItem* Item;
+		int32 Amount;
+		bool ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Inventory" },
+		{ "ModuleRelativePath", "InventoryComponent.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_Item;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_Amount;
+	static void NewProp_ReturnValue_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UInventoryComponent_GetItemAmount_Statics::NewProp_Item = { "Item", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventGetItemAmount_Parms, Item), Z_Construct_UClass_UItem_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UInventoryComponent_GetItemAmount_Statics::NewProp_Amount = { "Amount", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventGetItemAmount_Parms, Amount), METADATA_PARAMS(0, nullptr) };
+void Z_Construct_UFunction_UInventoryComponent_GetItemAmount_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+{
+	((InventoryComponent_eventGetItemAmount_Parms*)Obj)->ReturnValue = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UInventoryComponent_GetItemAmount_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(InventoryComponent_eventGetItemAmount_Parms), &Z_Construct_UFunction_UInventoryComponent_GetItemAmount_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UInventoryComponent_GetItemAmount_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_GetItemAmount_Statics::NewProp_Item,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_GetItemAmount_Statics::NewProp_Amount,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_GetItemAmount_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_GetItemAmount_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UInventoryComponent_GetItemAmount_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UInventoryComponent, nullptr, "GetItemAmount", nullptr, nullptr, Z_Construct_UFunction_UInventoryComponent_GetItemAmount_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_GetItemAmount_Statics::PropPointers), sizeof(Z_Construct_UFunction_UInventoryComponent_GetItemAmount_Statics::InventoryComponent_eventGetItemAmount_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_GetItemAmount_Statics::Function_MetaDataParams), Z_Construct_UFunction_UInventoryComponent_GetItemAmount_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UInventoryComponent_GetItemAmount_Statics::InventoryComponent_eventGetItemAmount_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UInventoryComponent_GetItemAmount()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UInventoryComponent_GetItemAmount_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UInventoryComponent::execGetItemAmount)
+{
+	P_GET_OBJECT(UItem,Z_Param_Item);
+	P_GET_PROPERTY_REF(FIntProperty,Z_Param_Out_Amount);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(bool*)Z_Param__Result=P_THIS->GetItemAmount(Z_Param_Item,Z_Param_Out_Amount);
+	P_NATIVE_END;
+}
+// End Class UInventoryComponent Function GetItemAmount
+
+// Begin Class UInventoryComponent Function GetItemAmountByName
+struct Z_Construct_UFunction_UInventoryComponent_GetItemAmountByName_Statics
+{
+	struct InventoryComponent_eventGetItemAmountByName_Parms
 	{
 		FString ItemName;
-		int32 AmountToRemove;
+		int32 Amount;
+		bool ReturnValue;
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
@@ -365,14 +518,100 @@ struct Z_Construct_UFunction_UInventoryComponent_RemoveItem_Statics
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FStrPropertyParams NewProp_ItemName;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_Amount;
+	static void NewProp_ReturnValue_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UInventoryComponent_GetItemAmountByName_Statics::NewProp_ItemName = { "ItemName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventGetItemAmountByName_Parms, ItemName), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UInventoryComponent_GetItemAmountByName_Statics::NewProp_Amount = { "Amount", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventGetItemAmountByName_Parms, Amount), METADATA_PARAMS(0, nullptr) };
+void Z_Construct_UFunction_UInventoryComponent_GetItemAmountByName_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+{
+	((InventoryComponent_eventGetItemAmountByName_Parms*)Obj)->ReturnValue = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UInventoryComponent_GetItemAmountByName_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(InventoryComponent_eventGetItemAmountByName_Parms), &Z_Construct_UFunction_UInventoryComponent_GetItemAmountByName_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UInventoryComponent_GetItemAmountByName_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_GetItemAmountByName_Statics::NewProp_ItemName,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_GetItemAmountByName_Statics::NewProp_Amount,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_GetItemAmountByName_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_GetItemAmountByName_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UInventoryComponent_GetItemAmountByName_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UInventoryComponent, nullptr, "GetItemAmountByName", nullptr, nullptr, Z_Construct_UFunction_UInventoryComponent_GetItemAmountByName_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_GetItemAmountByName_Statics::PropPointers), sizeof(Z_Construct_UFunction_UInventoryComponent_GetItemAmountByName_Statics::InventoryComponent_eventGetItemAmountByName_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_GetItemAmountByName_Statics::Function_MetaDataParams), Z_Construct_UFunction_UInventoryComponent_GetItemAmountByName_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UInventoryComponent_GetItemAmountByName_Statics::InventoryComponent_eventGetItemAmountByName_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UInventoryComponent_GetItemAmountByName()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UInventoryComponent_GetItemAmountByName_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UInventoryComponent::execGetItemAmountByName)
+{
+	P_GET_PROPERTY(FStrProperty,Z_Param_ItemName);
+	P_GET_PROPERTY_REF(FIntProperty,Z_Param_Out_Amount);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(bool*)Z_Param__Result=P_THIS->GetItemAmountByName(Z_Param_ItemName,Z_Param_Out_Amount);
+	P_NATIVE_END;
+}
+// End Class UInventoryComponent Function GetItemAmountByName
+
+// Begin Class UInventoryComponent Function RemoveAllItems
+struct Z_Construct_UFunction_UInventoryComponent_RemoveAllItems_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Inventory" },
+		{ "ModuleRelativePath", "InventoryComponent.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UInventoryComponent_RemoveAllItems_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UInventoryComponent, nullptr, "RemoveAllItems", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_RemoveAllItems_Statics::Function_MetaDataParams), Z_Construct_UFunction_UInventoryComponent_RemoveAllItems_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_UInventoryComponent_RemoveAllItems()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UInventoryComponent_RemoveAllItems_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UInventoryComponent::execRemoveAllItems)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->RemoveAllItems();
+	P_NATIVE_END;
+}
+// End Class UInventoryComponent Function RemoveAllItems
+
+// Begin Class UInventoryComponent Function RemoveItem
+struct Z_Construct_UFunction_UInventoryComponent_RemoveItem_Statics
+{
+	struct InventoryComponent_eventRemoveItem_Parms
+	{
+		UItem* Item;
+		int32 AmountToRemove;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Inventory" },
+		{ "ModuleRelativePath", "InventoryComponent.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_Item;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_AmountToRemove;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UInventoryComponent_RemoveItem_Statics::NewProp_ItemName = { "ItemName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventRemoveItem_Parms, ItemName), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UInventoryComponent_RemoveItem_Statics::NewProp_Item = { "Item", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventRemoveItem_Parms, Item), Z_Construct_UClass_UItem_NoRegister, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UInventoryComponent_RemoveItem_Statics::NewProp_AmountToRemove = { "AmountToRemove", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventRemoveItem_Parms, AmountToRemove), METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UInventoryComponent_RemoveItem_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_RemoveItem_Statics::NewProp_ItemName,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_RemoveItem_Statics::NewProp_Item,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_RemoveItem_Statics::NewProp_AmountToRemove,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_RemoveItem_Statics::PropPointers) < 2048);
@@ -389,14 +628,62 @@ UFunction* Z_Construct_UFunction_UInventoryComponent_RemoveItem()
 }
 DEFINE_FUNCTION(UInventoryComponent::execRemoveItem)
 {
+	P_GET_OBJECT(UItem,Z_Param_Item);
+	P_GET_PROPERTY(FIntProperty,Z_Param_AmountToRemove);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->RemoveItem(Z_Param_Item,Z_Param_AmountToRemove);
+	P_NATIVE_END;
+}
+// End Class UInventoryComponent Function RemoveItem
+
+// Begin Class UInventoryComponent Function RemoveItemByName
+struct Z_Construct_UFunction_UInventoryComponent_RemoveItemByName_Statics
+{
+	struct InventoryComponent_eventRemoveItemByName_Parms
+	{
+		FString ItemName;
+		int32 AmountToRemove;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Inventory" },
+		{ "ModuleRelativePath", "InventoryComponent.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStrPropertyParams NewProp_ItemName;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_AmountToRemove;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UInventoryComponent_RemoveItemByName_Statics::NewProp_ItemName = { "ItemName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventRemoveItemByName_Parms, ItemName), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UInventoryComponent_RemoveItemByName_Statics::NewProp_AmountToRemove = { "AmountToRemove", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(InventoryComponent_eventRemoveItemByName_Parms, AmountToRemove), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UInventoryComponent_RemoveItemByName_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_RemoveItemByName_Statics::NewProp_ItemName,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventoryComponent_RemoveItemByName_Statics::NewProp_AmountToRemove,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_RemoveItemByName_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UInventoryComponent_RemoveItemByName_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UInventoryComponent, nullptr, "RemoveItemByName", nullptr, nullptr, Z_Construct_UFunction_UInventoryComponent_RemoveItemByName_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_RemoveItemByName_Statics::PropPointers), sizeof(Z_Construct_UFunction_UInventoryComponent_RemoveItemByName_Statics::InventoryComponent_eventRemoveItemByName_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UInventoryComponent_RemoveItemByName_Statics::Function_MetaDataParams), Z_Construct_UFunction_UInventoryComponent_RemoveItemByName_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UInventoryComponent_RemoveItemByName_Statics::InventoryComponent_eventRemoveItemByName_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UInventoryComponent_RemoveItemByName()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UInventoryComponent_RemoveItemByName_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UInventoryComponent::execRemoveItemByName)
+{
 	P_GET_PROPERTY(FStrProperty,Z_Param_ItemName);
 	P_GET_PROPERTY(FIntProperty,Z_Param_AmountToRemove);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	P_THIS->RemoveItem(Z_Param_ItemName,Z_Param_AmountToRemove);
+	P_THIS->RemoveItemByName(Z_Param_ItemName,Z_Param_AmountToRemove);
 	P_NATIVE_END;
 }
-// End Class UInventoryComponent Function RemoveItem
+// End Class UInventoryComponent Function RemoveItemByName
 
 // Begin Class UInventoryComponent
 void UInventoryComponent::StaticRegisterNativesUInventoryComponent()
@@ -409,7 +696,13 @@ void UInventoryComponent::StaticRegisterNativesUInventoryComponent()
 		{ "FindItemCountsFromItemName", &UInventoryComponent::execFindItemCountsFromItemName },
 		{ "FindItemSerializedNamesFromItemName", &UInventoryComponent::execFindItemSerializedNamesFromItemName },
 		{ "FoundInMap", &UInventoryComponent::execFoundInMap },
+		{ "GetAllItems", &UInventoryComponent::execGetAllItems },
+		{ "GetFirstEmptySlotIndex", &UInventoryComponent::execGetFirstEmptySlotIndex },
+		{ "GetItemAmount", &UInventoryComponent::execGetItemAmount },
+		{ "GetItemAmountByName", &UInventoryComponent::execGetItemAmountByName },
+		{ "RemoveAllItems", &UInventoryComponent::execRemoveAllItems },
 		{ "RemoveItem", &UInventoryComponent::execRemoveItem },
+		{ "RemoveItemByName", &UInventoryComponent::execRemoveItemByName },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -429,7 +722,13 @@ struct Z_Construct_UClass_UInventoryComponent_Statics
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_InventorySize_MetaData[] = {
 		{ "Category", "Inventory" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Blueprintable properties\n" },
+#endif
 		{ "ModuleRelativePath", "InventoryComponent.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Blueprintable properties" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsStackable_MetaData[] = {
 		{ "Category", "Inventory" },
@@ -439,15 +738,7 @@ struct Z_Construct_UClass_UInventoryComponent_Statics
 		{ "Category", "Inventory" },
 		{ "ModuleRelativePath", "InventoryComponent.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ItemArray_MetaData[] = {
-		{ "Category", "Inventory" },
-		{ "ModuleRelativePath", "InventoryComponent.h" },
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ItemCountMap_MetaData[] = {
-		{ "Category", "Inventory" },
-		{ "ModuleRelativePath", "InventoryComponent.h" },
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ItemMap_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SlotMap_MetaData[] = {
 		{ "Category", "Inventory" },
 		{ "ModuleRelativePath", "InventoryComponent.h" },
 	};
@@ -456,24 +747,25 @@ struct Z_Construct_UClass_UInventoryComponent_Statics
 	static void NewProp_bIsStackable_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsStackable;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_MaxStackSize;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_ItemArray_Inner;
-	static const UECodeGen_Private::FArrayPropertyParams NewProp_ItemArray;
-	static const UECodeGen_Private::FIntPropertyParams NewProp_ItemCountMap_ValueProp;
-	static const UECodeGen_Private::FStrPropertyParams NewProp_ItemCountMap_Key_KeyProp;
-	static const UECodeGen_Private::FMapPropertyParams NewProp_ItemCountMap;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_ItemMap_ValueProp;
-	static const UECodeGen_Private::FStrPropertyParams NewProp_ItemMap_Key_KeyProp;
-	static const UECodeGen_Private::FMapPropertyParams NewProp_ItemMap;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_SlotMap_ValueProp;
+	static const UECodeGen_Private::FStrPropertyParams NewProp_SlotMap_Key_KeyProp;
+	static const UECodeGen_Private::FMapPropertyParams NewProp_SlotMap;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_UInventoryComponent_AddItem, "AddItem" }, // 2039877982
-		{ &Z_Construct_UFunction_UInventoryComponent_AddItemStackable, "AddItemStackable" }, // 3751947717
+		{ &Z_Construct_UFunction_UInventoryComponent_AddItem, "AddItem" }, // 3610446830
+		{ &Z_Construct_UFunction_UInventoryComponent_AddItemStackable, "AddItemStackable" }, // 954570067
 		{ &Z_Construct_UFunction_UInventoryComponent_AddNewItem, "AddNewItem" }, // 358523196
 		{ &Z_Construct_UFunction_UInventoryComponent_FindItemCountsFromItemName, "FindItemCountsFromItemName" }, // 987665476
 		{ &Z_Construct_UFunction_UInventoryComponent_FindItemSerializedNamesFromItemName, "FindItemSerializedNamesFromItemName" }, // 4159682782
-		{ &Z_Construct_UFunction_UInventoryComponent_FoundInMap, "FoundInMap" }, // 806778554
-		{ &Z_Construct_UFunction_UInventoryComponent_RemoveItem, "RemoveItem" }, // 114833466
+		{ &Z_Construct_UFunction_UInventoryComponent_FoundInMap, "FoundInMap" }, // 1525588262
+		{ &Z_Construct_UFunction_UInventoryComponent_GetAllItems, "GetAllItems" }, // 2046697062
+		{ &Z_Construct_UFunction_UInventoryComponent_GetFirstEmptySlotIndex, "GetFirstEmptySlotIndex" }, // 1648229975
+		{ &Z_Construct_UFunction_UInventoryComponent_GetItemAmount, "GetItemAmount" }, // 2487599492
+		{ &Z_Construct_UFunction_UInventoryComponent_GetItemAmountByName, "GetItemAmountByName" }, // 2059278523
+		{ &Z_Construct_UFunction_UInventoryComponent_RemoveAllItems, "RemoveAllItems" }, // 632261554
+		{ &Z_Construct_UFunction_UInventoryComponent_RemoveItem, "RemoveItem" }, // 1245441958
+		{ &Z_Construct_UFunction_UInventoryComponent_RemoveItemByName, "RemoveItemByName" }, // 925088112
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -488,26 +780,16 @@ void Z_Construct_UClass_UInventoryComponent_Statics::NewProp_bIsStackable_SetBit
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_bIsStackable = { "bIsStackable", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UInventoryComponent), &Z_Construct_UClass_UInventoryComponent_Statics::NewProp_bIsStackable_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsStackable_MetaData), NewProp_bIsStackable_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_MaxStackSize = { "MaxStackSize", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInventoryComponent, MaxStackSize), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MaxStackSize_MetaData), NewProp_MaxStackSize_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_ItemArray_Inner = { "ItemArray", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UItem_NoRegister, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_ItemArray = { "ItemArray", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInventoryComponent, ItemArray), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemArray_MetaData), NewProp_ItemArray_MetaData) };
-const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_ItemCountMap_ValueProp = { "ItemCountMap", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_ItemCountMap_Key_KeyProp = { "ItemCountMap_Key", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_ItemCountMap = { "ItemCountMap", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInventoryComponent, ItemCountMap), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemCountMap_MetaData), NewProp_ItemCountMap_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_ItemMap_ValueProp = { "ItemMap", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UClass_UItem_NoRegister, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_ItemMap_Key_KeyProp = { "ItemMap_Key", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_ItemMap = { "ItemMap", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInventoryComponent, ItemMap), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemMap_MetaData), NewProp_ItemMap_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_SlotMap_ValueProp = { "SlotMap", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UScriptStruct_FSlotStruct, METADATA_PARAMS(0, nullptr) }; // 402799882
+const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_SlotMap_Key_KeyProp = { "SlotMap_Key", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_SlotMap = { "SlotMap", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInventoryComponent, SlotMap), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SlotMap_MetaData), NewProp_SlotMap_MetaData) }; // 402799882
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UInventoryComponent_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_InventorySize,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_bIsStackable,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_MaxStackSize,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_ItemArray_Inner,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_ItemArray,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_ItemCountMap_ValueProp,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_ItemCountMap_Key_KeyProp,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_ItemCountMap,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_ItemMap_ValueProp,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_ItemMap_Key_KeyProp,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_ItemMap,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_SlotMap_ValueProp,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_SlotMap_Key_KeyProp,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_SlotMap,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UInventoryComponent_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UInventoryComponent_Statics::DependentSingletons[])() = {
@@ -547,14 +829,14 @@ UInventoryComponent::~UInventoryComponent() {}
 // End Class UInventoryComponent
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_Users_D3742149_Source_UEProj_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_Statics
+struct Z_CompiledInDeferFile_FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UInventoryComponent, UInventoryComponent::StaticClass, TEXT("UInventoryComponent"), &Z_Registration_Info_UClass_UInventoryComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInventoryComponent), 2072918893U) },
+		{ Z_Construct_UClass_UInventoryComponent, UInventoryComponent::StaticClass, TEXT("UInventoryComponent"), &Z_Registration_Info_UClass_UInventoryComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInventoryComponent), 1375402203U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_D3742149_Source_UEProj_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_1157358728(TEXT("/Script/ProgramEngineICA2"),
-	Z_CompiledInDeferFile_FID_Users_D3742149_Source_UEProj_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_D3742149_Source_UEProj_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_1350892136(TEXT("/Script/ProgramEngineICA2"),
+	Z_CompiledInDeferFile_FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

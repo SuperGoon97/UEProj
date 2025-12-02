@@ -180,6 +180,12 @@
     <ClCompile Include="..\..\Source\ProgramEngineICA2\ProgramEngineICA2Projectile.h">
       <Filter>Source\ProgramEngineICA2</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\ProgramEngineICA2\SlotStruct.cpp">
+      <Filter>Source\ProgramEngineICA2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ProgramEngineICA2\SlotStruct.h">
+      <Filter>Source\ProgramEngineICA2</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\ProgramEngineICA2\TP_PickUpComponent.cpp">
       <Filter>Source\ProgramEngineICA2</Filter>
     </ClCompile>

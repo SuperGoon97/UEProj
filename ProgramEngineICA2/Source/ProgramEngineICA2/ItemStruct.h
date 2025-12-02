@@ -14,5 +14,8 @@ struct FItemStruct : public FTableRowBase
 	FString ItemName = "ItemName";
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item Data")
+	UTexture* ItemIcon = nullptr;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item Data")
 	bool bIsStackable = true;
 };
