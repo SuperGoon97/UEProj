@@ -7,6 +7,8 @@
 #include "Components/ActorComponent.h"
 #include "InventoryComponent.generated.h"
 
+//Delegates
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnInventoryUpdated);
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class PROGRAMENGINEICA2_API UInventoryComponent : public UActorComponent
@@ -18,6 +20,9 @@ public:
 	UInventoryComponent();
 
 	// Blueprintable properties
+
+	UPROPERTY(BlueprintAssignable, Category = "Inventory")
+	FOnInventoryUpdated OnInventoryUpdated;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
 	int32 InventorySize;
@@ -31,7 +36,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Inventory")
 	TMap<FString, FSlotStruct> SlotMap;
 
-
 	// Blueprintable functions
 	UFUNCTION(BlueprintCallable, Category = "Inventory")
 	void AddItem(UItem* NewItem, int32 Amount,bool& AllItemsStacked, int32& Remainder);
@@ -44,6 +48,21 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Inventory")
 	TArray<FSlotStruct> GetAllItems();
+
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	int32 TryCombineSlots(int32 Slot1 , int32 Slot2);
+
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void TryCombineAllSlots();
+
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	bool TryMoveFromSlotToSlot(int32 FromSlotIndex, int32 ToSlotIndex);
+
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	bool TryMoveAmountFromSlotToSlot(int32 FromSlotIndex, int32 ToSlotIndex, int32 AmountToMove, int32& Remainder);
+
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void SwapSlots(int32 Slot1, int32 Slot2);
 
 	UFUNCTION(BlueprintCallable, Category = "Inventory")
 	void RemoveItem(UItem* Item, int32 AmountToRemove);
@@ -68,6 +87,17 @@ public:
 	UFUNCTION()
 	int32 GetFirstEmptySlotIndex();
 
+	UFUNCTION()
+	FSlotStruct GetSlot(int32 SlotIndex);
+
+	UFUNCTION()
+	bool IsSlotEmpty(int32 SlotIndex);
+
+	UFUNCTION()
+	void ClearSlotFromIndex(int32 SlotIndex);
+
+	UFUNCTION()
+	void ClearSlotFromSlotStruct(FSlotStruct SlotStruct);
 	UFUNCTION()
 	TArray<FString> FindItemSerializedNamesFromItemName(FString ItemName);
 

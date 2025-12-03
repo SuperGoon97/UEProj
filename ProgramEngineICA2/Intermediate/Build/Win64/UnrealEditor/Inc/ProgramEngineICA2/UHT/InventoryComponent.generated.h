@@ -17,9 +17,17 @@ struct FSlotStruct;
 #endif
 #define PROGRAMENGINEICA2_InventoryComponent_generated_h
 
-#define FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_11_DELEGATE \
+PROGRAMENGINEICA2_API void FOnInventoryUpdated_DelegateWrapper(const FMulticastScriptDelegate& OnInventoryUpdated);
+
+
+#define FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execFindItemCountsFromItemName); \
 	DECLARE_FUNCTION(execFindItemSerializedNamesFromItemName); \
+	DECLARE_FUNCTION(execClearSlotFromSlotStruct); \
+	DECLARE_FUNCTION(execClearSlotFromIndex); \
+	DECLARE_FUNCTION(execIsSlotEmpty); \
+	DECLARE_FUNCTION(execGetSlot); \
 	DECLARE_FUNCTION(execGetFirstEmptySlotIndex); \
 	DECLARE_FUNCTION(execFoundInMap); \
 	DECLARE_FUNCTION(execAddNewItem); \
@@ -27,13 +35,18 @@ struct FSlotStruct;
 	DECLARE_FUNCTION(execRemoveAllItems); \
 	DECLARE_FUNCTION(execRemoveItemByName); \
 	DECLARE_FUNCTION(execRemoveItem); \
+	DECLARE_FUNCTION(execSwapSlots); \
+	DECLARE_FUNCTION(execTryMoveAmountFromSlotToSlot); \
+	DECLARE_FUNCTION(execTryMoveFromSlotToSlot); \
+	DECLARE_FUNCTION(execTryCombineAllSlots); \
+	DECLARE_FUNCTION(execTryCombineSlots); \
 	DECLARE_FUNCTION(execGetAllItems); \
 	DECLARE_FUNCTION(execGetItemAmountByName); \
 	DECLARE_FUNCTION(execGetItemAmount); \
 	DECLARE_FUNCTION(execAddItem);
 
 
-#define FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_14_INCLASS_NO_PURE_DECLS \
+#define FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_16_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUInventoryComponent(); \
 	friend struct Z_Construct_UClass_UInventoryComponent_Statics; \
@@ -42,7 +55,7 @@ public: \
 	DECLARE_SERIALIZER(UInventoryComponent)
 
 
-#define FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_14_ENHANCED_CONSTRUCTORS \
+#define FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_16_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	UInventoryComponent(UInventoryComponent&&); \
@@ -54,13 +67,13 @@ public: \
 	NO_API virtual ~UInventoryComponent();
 
 
-#define FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_11_PROLOG
-#define FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_14_GENERATED_BODY \
+#define FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_13_PROLOG
+#define FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_16_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_14_INCLASS_NO_PURE_DECLS \
-	FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_14_ENHANCED_CONSTRUCTORS \
+	FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_16_INCLASS_NO_PURE_DECLS \
+	FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_16_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
