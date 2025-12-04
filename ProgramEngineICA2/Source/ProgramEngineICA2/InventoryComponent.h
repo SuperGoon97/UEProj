@@ -40,7 +40,7 @@ public:
 	int32 MaxStackSize;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Inventory")
-	TMap<FString, FSlotStruct> SlotMap;
+	TArray <FSlotStruct> SlotArray;
 
 	// Blueprintable functions
 	UFUNCTION(BlueprintCallable, Category = "Inventory")
@@ -50,7 +50,7 @@ public:
 	bool GetItemAmount(UItem* Item, int32& Amount);
 
 	UFUNCTION(BlueprintCallable, Category = "Inventory")
-	bool GetItemAmountByName(FString ItemName, int32& Amount);
+	int32 GetItemAmountFromName(FString ItemName);
 
 	UFUNCTION(BlueprintCallable, Category = "Inventory")
 	TArray<FSlotStruct> GetAllItems();
@@ -90,10 +90,10 @@ public:
 
 	// Helper functions
 	UFUNCTION()
-	int32 AddItemStackable(UItem* NewItem, FString ItemString, int32 Amount, int32& Remainder);
+	int32 AddItemStackable(UItem* NewItem, int32 Amount, int32& Remainder);
 
 	UFUNCTION()
-	void AddNewItem(UItem* NewItem, FString ItemString, int32 Amount);
+	void AddNewItem(UItem* NewItem, int32 Amount);
 
 	UFUNCTION()
 	bool FoundInMap(UItem* Item);
@@ -105,12 +105,20 @@ public:
 	void ClearSlotFromIndex(int32 SlotIndex);
 
 	UFUNCTION()
-	void ClearSlotFromSlotStruct(FSlotStruct SlotStruct);
-	UFUNCTION()
-	TArray<FString> FindItemSerializedNamesFromItemName(FString ItemName);
+	int32 NumberOfSlotsFilledByItemName(FString ItemName);
 
 	UFUNCTION()
-	TMap<FString, int32> FindItemCountsFromItemName(FString ItemName);
+	int32 SquashInventory();
+
+	UFUNCTION()
+	void SortByName(int32 ArraySize);
+
+	UFUNCTION()
+	void SortByWeight(int32 ArraySize);
+
+	UFUNCTION()
+	void SortByRarity(int32 ArraySize);
+
 
 protected:
 	// Called when the game starts

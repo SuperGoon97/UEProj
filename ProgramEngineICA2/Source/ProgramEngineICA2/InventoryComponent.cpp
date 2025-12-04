@@ -13,115 +13,49 @@ UInventoryComponent::UInventoryComponent()
 	InventorySize = 20; // Default inventory size
 	bIsStackable = true; // Default stackable
 	MaxStackSize = 10; // Default max stack size
+	SlotArray = TArray<FSlotStruct>();
+	SlotArray.SetNum(InventorySize);
 	// ...
 }
 
 void UInventoryComponent::AddItem(UItem* NewItem, int32 Amount, bool& AllItemsStacked, int32& Remainder)
 {
-	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("Attempting to add item: %s (Amount: %d)"), *NewItem->ItemData.ItemName, Amount));
-
 	Remainder = Amount;
 
-	if (NewItem != nullptr) 
+	if (NewItem != nullptr)
 	{
-		float FSlotsRequired = ceilf((float)Amount / (float)MaxStackSize);
-		int32 ISlotsRequired = (int32)FSlotsRequired;
-
-		//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("Slots required: %i"), ISlotsRequired));
-
-		FString ItemName = NewItem->ItemData.ItemName;
-		FString ItemSerializedName = ItemName;
-
-		int32 AmountToTryAdd;
-
-		for (int32 i = 0; i < ISlotsRequired; i++)
+		if (bIsStackable && NewItem->ItemData.bIsStackable)
 		{
-			if (Amount <= 0) { AllItemsStacked = true; return; } // Item amount is zero or less, nothing to add. Remainder already set to Amount at start of function
-
-			if (Amount > MaxStackSize) { AmountToTryAdd = MaxStackSize; }
-			else { AmountToTryAdd = Amount; }
-
-			if (bIsStackable && NewItem->ItemData.bIsStackable) 
-			{	
-				int32 ItemsAdded = AddItemStackable(NewItem, ItemSerializedName, AmountToTryAdd, Remainder);
-				if (ItemsAdded == 0)
-				{ 
-					AllItemsStacked = false; 
-					Remainder = Amount; 
-					OnInventoryUpdated.Broadcast();
-					//GEngine->AddOnScreenDebugMessage(-1, 50.f, FColor::Yellow, TEXT("Inventory Full!"));
-					return; 
-				}
-				Amount -= ItemsAdded;
-				//FString AmountTxt = FString::FromInt(Amount);
-				//GEngine->AddOnScreenDebugMessage(-1, 50.f, FColor::Black, FString::Printf(TEXT("Amount = %s"), *AmountTxt));
-			}
-			
-			else if (SlotMap.Num() < InventorySize)
-			{
-				AmountToTryAdd = 1; // Non-stackable items can only be added one at a time
-
-				ItemSerializedName = ItemName;
-				ItemSerializedName.Append(FString::FromInt(GetFirstEmptySlotIndex()));
-					
-				if (!SlotMap.Contains(ItemSerializedName))
-				{
-					AddNewItem(NewItem, ItemSerializedName, AmountToTryAdd);
-
-					//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Added new stack for item: %s"), *ItemSerializedName));
-				}
-				
-				Amount -= AmountToTryAdd;
-				Remainder = Amount;
-				//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Added item: %s"), *NewItem->ItemData.ItemName));
-			}
-			else 
-			{
-				AllItemsStacked = false;
-				Remainder = Amount;
-				OnInventoryUpdated.Broadcast();
-				//GEngine->AddOnScreenDebugMessage(-1, 50.f, FColor::Yellow, TEXT("Inventory Full!"));
-				return;
-			}
-
+			Remainder = AddItemStackable(NewItem, Amount, Remainder);
 		}
-
-		FString RemainderTxt = FString::FromInt(Remainder);
-
-		//GEngine->AddOnScreenDebugMessage(-1, 200.f, FColor::Emerald, FString::Printf(TEXT("Remainder = %s"), *RemainderTxt));
-		AllItemsStacked = true;
-		Remainder = 0;
-		OnInventoryUpdated.Broadcast();
-		//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Added items successfully")));
-		return; // Items added successfully
+		else
+		{
+			while (Amount > 0)
+			{
+				int32 EmptySlotIndex = GetFirstEmptySlotIndex();
+				if (EmptySlotIndex != -1)
+				{
+					AddNewItem(NewItem, 1);
+					Amount--;
+					Remainder = Amount;
+				}
+				else
+				{
+					Remainder = Amount;
+					break; // No more space
+				}
+			}
+		}
 	}
-	AllItemsStacked = false;
-	Remainder = Amount;
-	OnInventoryUpdated.Broadcast();
-	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Invalid item!"));
-	return ; // Invalid item
+
+	return;
 }
 
 bool UInventoryComponent::GetItemAmount(UItem* Item, int32& Amount)
 {
-	if (GetItemAmountByName(Item->ItemData.ItemName, Amount)) 
+	Amount = GetItemAmountFromName(Item->ItemData.ItemName);
+	if (Amount > 0) 
 	{
-		return true;
-	}
-	return false;
-}
-
-bool UInventoryComponent::GetItemAmountByName(FString ItemName, int32& Amount)
-{
-	TMap<FString, int32> MapOfStackSerializedNamesWithInt = TMap<FString, int32>();
-	MapOfStackSerializedNamesWithInt = FindItemCountsFromItemName(ItemName);
-	Amount = 0;
-	if (MapOfStackSerializedNamesWithInt.Num() > 0)
-	{
-		for (TPair<FString, int32>& Map : MapOfStackSerializedNamesWithInt)
-		{
-			Amount += Map.Value;
-		}
 		return true;
 	}
 	return false;
@@ -129,21 +63,16 @@ bool UInventoryComponent::GetItemAmountByName(FString ItemName, int32& Amount)
 
 TArray<FSlotStruct> UInventoryComponent::GetAllItems()
 {
-	if (SlotMap.Num() > 0)
-	{
-		TArray<FSlotStruct> ArrayOfSlots;
-		SlotMap.GenerateValueArray(ArrayOfSlots);
-		return ArrayOfSlots;
-	}
-	return TArray<FSlotStruct>();
+	return SlotArray;
 }
 
 int32 UInventoryComponent::TryCombineSlots(int32 Slot1, int32 Slot2)
 {
-	FSlotStruct SlotStruct1 = GetSlot(Slot1);
-	FSlotStruct SlotStruct2 = GetSlot(Slot2);
+	if (Slot1 == Slot2) { return -1; } // Same slot, do nothing
 
-	if (SlotStruct1.SlotIndex == SlotStruct2.SlotIndex) { return -1; } // Same slot, do nothing
+	FSlotStruct SlotStruct1 = GetSlot(Slot1);
+	if (SlotStruct1.Item == nullptr) { return -1; } // Slot 1 is empty, cannot combine
+	FSlotStruct SlotStruct2 = GetSlot(Slot2);
 
 	if (SlotStruct1.Item != nullptr && SlotStruct2.Item != nullptr)
 	{
@@ -153,7 +82,7 @@ int32 UInventoryComponent::TryCombineSlots(int32 Slot1, int32 Slot2)
 			if (TotalQuantity <= MaxStackSize)
 			{
 				ClearSlotFromIndex(Slot1);
-				SlotMap[SlotStruct2.Item->ItemData.ItemName + FString::FromInt(SlotStruct2.SlotIndex)].Quantity = TotalQuantity;
+				SlotArray[Slot2].Quantity = TotalQuantity;
 				OnSlotChanged.Broadcast(Slot1);
 				OnSlotChanged.Broadcast(Slot2);
 				OnInventoryUpdated.Broadcast();
@@ -162,8 +91,8 @@ int32 UInventoryComponent::TryCombineSlots(int32 Slot1, int32 Slot2)
 			else
 			{
 				int32 Remainder = TotalQuantity - MaxStackSize;
-				SlotMap[SlotStruct2.Item->ItemData.ItemName + FString::FromInt(SlotStruct2.SlotIndex)].Quantity = MaxStackSize;
-				SlotMap[SlotStruct1.Item->ItemData.ItemName + FString::FromInt(SlotStruct1.SlotIndex)].Quantity = Remainder;
+				SlotArray[Slot2].Quantity = MaxStackSize;
+				SlotArray[Slot1].Quantity = Remainder;
 				OnSlotChanged.Broadcast(Slot1);
 				OnSlotChanged.Broadcast(Slot2);
 				OnInventoryUpdated.Broadcast();
@@ -173,35 +102,16 @@ int32 UInventoryComponent::TryCombineSlots(int32 Slot1, int32 Slot2)
 		OnInventoryUpdated.Broadcast();
 		return -1; // Different items, cannot combine
 	}
-	OnInventoryUpdated.Broadcast();
 	return -1; // One or both slots are empty, cannot combine
 }
 
 void UInventoryComponent::TryCombineAllSlots()
 {
-	TArray<FString> ProcessedItemNames = TArray<FString>();
-	for (TPair<FString, FSlotStruct>& Key1 : SlotMap)
+	for(int i = 0; i < SlotArray.Num(); i++)
 	{
-		FString ItemName1 = Key1.Value.Item->ItemData.ItemName;
-		int32 SlotIndex1 = Key1.Value.SlotIndex;
-		int32 Remainder = 0;
-		if (!ProcessedItemNames.Contains(ItemName1))
+		for(int j = i + 1; j < SlotArray.Num(); j++)
 		{
-			for (TPair<FString, FSlotStruct>& Key2 : SlotMap)
-			{
-				FString ItemName2 = Key2.Value.Item->ItemData.ItemName;
-				if (ItemName1 == ItemName2 && Key1.Value.SlotIndex != Key2.Value.SlotIndex)
-				{
-					Remainder = TryCombineSlots(SlotIndex1, Key2.Value.SlotIndex);
-					OnSlotChanged.Broadcast(SlotIndex1);
-					OnSlotChanged.Broadcast(Key2.Value.SlotIndex);
-					if (Remainder == 0)
-					{
-						SlotIndex1 = Key2.Value.SlotIndex; // Update SlotIndex1 to the slot that now contains the combined items
-					}
-				}
-			}
-			ProcessedItemNames.Add(ItemName1);
+			TryCombineSlots(i, j);
 		}
 	}
 }
@@ -216,14 +126,8 @@ bool UInventoryComponent::TryMoveFromSlotToSlot(int32 FromSlotIndex, int32 ToSlo
 	if (ToSlot.Item == nullptr)
 	{
 		// Move item to empty slot
-		SlotMap.Remove(FromSlot.Item->ItemData.ItemName + FString::FromInt(FromSlot.SlotIndex));
-		FString NewKey = FromSlot.Item->ItemData.ItemName + FString::FromInt(ToSlotIndex);
-		FromSlot.SlotIndex = ToSlotIndex;
-		SlotMap.Add(NewKey, FromSlot);
-		OnSlotChanged.Broadcast(FromSlotIndex);
-		OnSlotChanged.Broadcast(ToSlotIndex);
-		OnInventoryUpdated.Broadcast();
-		return true;
+		ClearSlotFromIndex(FromSlotIndex);
+		SlotArray[ToSlotIndex] = FromSlot;
 	}
 	else if (FromSlot.Item->ItemData.ItemName == ToSlot.Item->ItemData.ItemName)
 	{
@@ -233,12 +137,19 @@ bool UInventoryComponent::TryMoveFromSlotToSlot(int32 FromSlotIndex, int32 ToSlo
 	{
 		SwapSlots(FromSlotIndex, ToSlotIndex);
 	}
-	return false;
+
+	OnSlotChanged.Broadcast(FromSlotIndex);
+	OnSlotChanged.Broadcast(ToSlotIndex);
+	OnInventoryUpdated.Broadcast();
+	return true;
 }
 
 bool UInventoryComponent::TryMoveAmountFromSlotToSlot(int32 FromSlotIndex, int32 ToSlotIndex, int32 AmountToMove, int32& Remainder)
 {
 	if (FromSlotIndex == ToSlotIndex) { Remainder = AmountToMove; return false; } // Same slot, do nothing
+	if (AmountToMove <= 0) { Remainder = AmountToMove; return false; } // Invalid amount to move
+	if (AmountToMove > MaxStackSize) { AmountToMove = MaxStackSize; } // Cap amount to move to max stack size
+
 
 	FSlotStruct FromSlot = GetSlot(FromSlotIndex);
 	if (FromSlot.Item == nullptr) { Remainder = AmountToMove; return false; }
@@ -248,29 +159,23 @@ bool UInventoryComponent::TryMoveAmountFromSlotToSlot(int32 FromSlotIndex, int32
 		// Move item to empty slot
 		if (AmountToMove >= FromSlot.Quantity)
 		{
-			SlotMap.Remove(FromSlot.Item->ItemData.ItemName + FString::FromInt(FromSlot.SlotIndex));
-			FString NewKey = FromSlot.Item->ItemData.ItemName + FString::FromInt(ToSlotIndex);
-			FromSlot.SlotIndex = ToSlotIndex;
-			SlotMap.Add(NewKey, FromSlot);
+			SlotArray[ToSlotIndex] = FromSlot;
+			FromSlot.Quantity = 0;
+			Remainder = 0;
 		}
 		else
 		{
 			FromSlot.Quantity -= AmountToMove;
-			SlotMap[FromSlot.Item->ItemData.ItemName + FString::FromInt(FromSlot.SlotIndex)] = FromSlot;
-			FSlotStruct NewSlot;
-			NewSlot.Item = FromSlot.Item;
-			NewSlot.Quantity = AmountToMove;
-			NewSlot.SlotIndex = ToSlotIndex;
-			FString NewKey = NewSlot.Item->ItemData.ItemName + FString::FromInt(ToSlotIndex);
-			SlotMap.Add(NewKey, NewSlot);
+			ToSlot = FromSlot;
+			ToSlot.Quantity = AmountToMove;
+			SlotArray[ToSlotIndex] = ToSlot;
+			SlotArray[FromSlotIndex] = FromSlot;
 		}
 
 		if (FromSlot.Quantity <= 0)
 		{
 			ClearSlotFromIndex(FromSlotIndex);
 		}
-
-		Remainder = 0;
 		OnSlotChanged.Broadcast(FromSlotIndex);
 		OnSlotChanged.Broadcast(ToSlotIndex);
 		OnInventoryUpdated.Broadcast();
@@ -282,8 +187,8 @@ bool UInventoryComponent::TryMoveAmountFromSlotToSlot(int32 FromSlotIndex, int32
 
 		ToSlot.Quantity += AmountToMove;
 		FromSlot.Quantity -= AmountToMove;
-		SlotMap[ToSlot.Item->ItemData.ItemName + FString::FromInt(ToSlot.SlotIndex)] = ToSlot;
-		SlotMap[FromSlot.Item->ItemData.ItemName + FString::FromInt(FromSlot.SlotIndex)] = FromSlot;
+		SlotArray[ToSlotIndex] = ToSlot;
+		SlotArray[FromSlotIndex] = FromSlot;
 		if (FromSlot.Quantity <= 0)
 		{
 			ClearSlotFromIndex(FromSlotIndex);
@@ -307,22 +212,13 @@ bool UInventoryComponent::TryMoveAmountFromSlotToSlot(int32 FromSlotIndex, int32
 
 void UInventoryComponent::SwapSlots(int32 Slot1, int32 Slot2)
 {
+	if (Slot1 == Slot2) { return; } // Same slot, do nothing
+
 	FSlotStruct SlotStruct1 = GetSlot(Slot1);
 	FSlotStruct SlotStruct2 = GetSlot(Slot2);
 
-	if (SlotStruct1.SlotIndex == SlotStruct2.SlotIndex) { return; } // Same slot, do nothing
-
-	FString Key1 = SlotStruct1.Item->ItemData.ItemName + FString::FromInt(Slot1);
-	FString Key2 = SlotStruct2.Item->ItemData.ItemName + FString::FromInt(Slot2);
-
-	SlotStruct1.SlotIndex = Slot2;
-	SlotStruct2.SlotIndex = Slot1;
-
-	SlotMap.Remove(Key1);
-	SlotMap.Remove(Key2);
-
-	SlotMap.Add(SlotStruct1.Item->ItemData.ItemName + FString::FromInt(Slot2), SlotStruct1);
-	SlotMap.Add(SlotStruct2.Item->ItemData.ItemName + FString::FromInt(Slot1), SlotStruct2);
+	SlotArray[Slot1] = SlotStruct2;
+	SlotArray[Slot2] = SlotStruct1;
 
 	OnSlotChanged.Broadcast(Slot1);
 	OnSlotChanged.Broadcast(Slot2);
@@ -331,7 +227,7 @@ void UInventoryComponent::SwapSlots(int32 Slot1, int32 Slot2)
 
 void UInventoryComponent::RemoveAllItems() 
 {
-	SlotMap.Empty();
+	SlotArray.Empty();
 	for (int32 i = 0; i < InventorySize; i++)
 	{
 		OnSlotChanged.Broadcast(i);
@@ -346,104 +242,98 @@ void UInventoryComponent::RemoveItem(UItem* Item, int32 AmountToRemove)
 
 void UInventoryComponent::RemoveItemByName(FString ItemName, int32 AmountToRemove)
 {
-	TMap<FString, int32> MapOfStackSerializedNamesWithInt = TMap<FString, int32>();
-	MapOfStackSerializedNamesWithInt = FindItemCountsFromItemName(ItemName);
-	for (TPair<FString, int32>& Map : MapOfStackSerializedNamesWithInt)
+	for (int32 i = 0; i < SlotArray.Num(); i++)
 	{
-		if (AmountToRemove <= 0) { return; } // No more items to remove
-		int32 CurrentCount = SlotMap[*Map.Key].Quantity;
-		if (CurrentCount <= AmountToRemove)
+		if (SlotArray[i].Item != nullptr)
 		{
-			AmountToRemove -= CurrentCount;
-			SlotMap.Remove(*Map.Key);
-			//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Removed item stack: %s"), *Map.Key));
+			if (SlotArray[i].Item->ItemData.ItemName == ItemName)
+			{
+				if (SlotArray[i].Quantity > AmountToRemove)
+				{
+					SlotArray[i].Quantity -= AmountToRemove;
+					OnSlotChanged.Broadcast(i);
+					return; // Removed required amount
+				}
+				else if (SlotArray[i].Quantity == AmountToRemove)
+				{
+					ClearSlotFromIndex(i);
+					return; // Removed required amount
+				}
+				else
+				{
+					AmountToRemove -= SlotArray[i].Quantity;
+					ClearSlotFromIndex(i);
+				}
+			}
 		}
-		else
-		{
-			SlotMap[*Map.Key].Item -= AmountToRemove;
-			AmountToRemove = 0;
-			//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Removed %d items from stack: %s"), AmountToRemove, *Map.Key));
-		}
-		OnSlotChanged.Broadcast(SlotMap[*Map.Key].SlotIndex);
 	}
 	OnInventoryUpdated.Broadcast();
 }
 
-int32 UInventoryComponent::AddItemStackable(UItem* NewItem, FString ItemSerializedName,int32 Amount, int32& Remainder)
+int32 UInventoryComponent::AddItemStackable(UItem* NewItem, int32 Amount, int32& Remainder)
 {
-	int32 InitialAmount = Amount;
-	// GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("Attempting to stack item: %s (Amount: %d)"), *ItemName, Amount));
-
-	if (FoundInMap(NewItem))
+	int32 AmountToAdd = Amount;
+	for (int32 i = 0; i < SlotArray.Num(); i++)
 	{
-		TMap<FString, int32> MapOfStackSerializedNamesWithInt = TMap<FString, int32>();
-		MapOfStackSerializedNamesWithInt = FindItemCountsFromItemName(NewItem->ItemData.ItemName);
-		
-		int32 ItterationRemainder = 0;
-		for (TPair<FString,int32>& Map : MapOfStackSerializedNamesWithInt)
+		if (SlotArray[i].Item != nullptr)
 		{
-			if (Map.Value < MaxStackSize)
+			if (SlotArray[i].Item->ItemData.ItemName == NewItem->ItemData.ItemName)
 			{
-				Amount += ItterationRemainder; // add itterationremainder from last itteration to amount to try and stack again
-				ItterationRemainder = 0; // reset itterationremainder
-
-				int32 Countspace = MaxStackSize - SlotMap[*Map.Key].Quantity;
-				int32 Difference = Amount - Countspace;
-				if (Difference >= 0) { ItterationRemainder = Amount - Countspace; } // calculate remainder if amount exceeds available space in stack
-				if (ItterationRemainder < 0) { ItterationRemainder = 0; } // no negative itterationremainder
-				if (Amount > Countspace) { Amount = Countspace; } // limit amount to available space in stack
-				if (Amount < Countspace) { ItterationRemainder = 0; } // if amount is less than available space in stack no itterationremainder
-				SlotMap[*Map.Key].Quantity += Amount;
-				OnSlotChanged.Broadcast(SlotMap[*Map.Key].SlotIndex);
-				//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Stacked item: %s (Count: %d)"), *ItemName, ItemCountMap[*Map.Key]));
+				int32 AvailableSpace = MaxStackSize - SlotArray[i].Quantity;
+				if (AvailableSpace > 0)
+				{
+					if (AmountToAdd <= AvailableSpace)
+					{
+						SlotArray[i].Quantity += AmountToAdd;
+						Remainder = 0;
+						OnSlotChanged.Broadcast(i);
+						return Remainder; // All items added
+					}
+					else
+					{
+						SlotArray[i].Quantity += AvailableSpace;
+						AmountToAdd -= AvailableSpace;
+						Remainder = AmountToAdd;
+						OnSlotChanged.Broadcast(i);
+					}
+				}
 			}
 		}
-		if (Amount <= 0) 
-		{ 
-			OnInventoryUpdated.Broadcast();
-			return InitialAmount; // All items stacked successfully
-		}
-		if (SlotMap.Num() < InventorySize)
-		{
-			ItemSerializedName = NewItem->ItemData.ItemName;
-			ItemSerializedName.Append(FString::FromInt(GetFirstEmptySlotIndex()));
-
-			if (!SlotMap.Contains(ItemSerializedName))
-			{
-				AddNewItem(NewItem, ItemSerializedName, Amount);
-
-				OnInventoryUpdated.Broadcast();
-				//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Added new stack for item: %s"), *ItemSerializedName));
-				return Amount; // New stack created successfully
-			}
-			OnInventoryUpdated.Broadcast();
-			//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Error finding stack slot!"));
-			return 0; // No available stack slot or error
-		}
-		OnInventoryUpdated.Broadcast();
-		//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Max stack size reached for item: %s"), *ItemName));
-		return 0; // Inventory Full
 	}
-	else if (SlotMap.Num() < InventorySize)
+	while (AmountToAdd > 0)
 	{
-		ItemSerializedName = NewItem->ItemData.ItemName;
-		ItemSerializedName.Append(FString::FromInt(GetFirstEmptySlotIndex()));
-		AddNewItem(NewItem, ItemSerializedName, Amount);
+		int32 FirstEmptySlotIndex = GetFirstEmptySlotIndex();
+		if (FirstEmptySlotIndex == -1)
+		{
+			Remainder = AmountToAdd;
+			return Remainder; // Inventory full, return amount added
+		}
+		if (AmountToAdd <= MaxStackSize)
+		{
+			AddNewItem(NewItem, AmountToAdd);
+			Remainder = 0;
+			return Remainder; // All items added
+		}
+		else
+		{
+			AddNewItem(NewItem, MaxStackSize);
+			AmountToAdd -= MaxStackSize;
+			Remainder = AmountToAdd;
+		}
 	}
-	OnInventoryUpdated.Broadcast();
-	return Amount;
+	return Remainder; // Return amount added
 }
 
 bool UInventoryComponent::FoundInMap(UItem* Item)
 {
-	FString ItemSerializedName;
-	for (int32 i = 0; i < InventorySize; i++) 
+	for (int32 i = 0; i < SlotArray.Num(); i++)
 	{
-		ItemSerializedName = Item->ItemData.ItemName;
-		ItemSerializedName.Append(FString::FromInt(i));
-		if (SlotMap.Contains(ItemSerializedName)) 
+		if (SlotArray[i].Item != nullptr)
 		{
-			return true;
+			if (SlotArray[i].Item->ItemData.ItemName == Item->ItemData.ItemName)
+			{
+				return true;
+			}
 		}
 	}
 	return false;
@@ -452,24 +342,12 @@ bool UInventoryComponent::FoundInMap(UItem* Item)
 int32 UInventoryComponent::GetFirstEmptySlotIndex()
 {
 	int32 ReturnIndex = -1;
-	TArray<int32> SlotArrayIndices;
-	if (SlotMap.Num() == 0) 
+	for (int32 i = 0; i < InventorySize; i++)
 	{
-		ReturnIndex = 0; // Inventory empty, return first slot index
-	}
-	else
-	{
-		for (TPair<FString, FSlotStruct>& Map : SlotMap)
+		if (IsSlotEmpty(i))
 		{
-			SlotArrayIndices.Add(Map.Value.SlotIndex);
-		}
-		for (int32 i = 0; i < InventorySize; i++)
-		{
-			if (!SlotArrayIndices.Contains(i))
-			{
-				ReturnIndex = i;
-				break;
-			}
+			ReturnIndex = i;
+			break;
 		}
 	}
 	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::Printf(TEXT("First empty slot index: %d"), ReturnIndex));
@@ -478,44 +356,35 @@ int32 UInventoryComponent::GetFirstEmptySlotIndex()
 
 FSlotStruct UInventoryComponent::GetSlot(int32 SlotIndex)
 {
-	for (TPair<FString, FSlotStruct>& Map : SlotMap)
-	{
-		if (Map.Value.SlotIndex == SlotIndex)
-		{
-			return Map.Value;
-		}
-	}
-	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Slot index %d not found!"), SlotIndex));
-	return FSlotStruct();
+	return SlotArray[SlotIndex];
 }
 
 bool UInventoryComponent::IsSlotEmpty(int32 SlotIndex)
 {
-	for (TPair<FString, FSlotStruct>& Map : SlotMap)
+	if (SlotArray[SlotIndex].Item == nullptr)
 	{
-		if (Map.Value.SlotIndex == SlotIndex)
-		{
-			return false;
-		}
+		return true;
 	}
-	return true;
+	return false;
 }
 
 void UInventoryComponent::SortInventory(EInventorySortEnum SortType)
 {
+	TryCombineAllSlots();
+	int32 SquashedSize = SquashInventory();
 	switch (SortType)
 	{
 	case EInventorySortEnum::Name:
-		// Sort by Name
+		SortByName(SquashedSize);
 		break;
 	case EInventorySortEnum::Quantity:
 		// Sort by Quantity
 		break;
 	case EInventorySortEnum::Weight:
-		// Sort by Weight
+		SortByWeight(SquashedSize);
 		break;
 	case EInventorySortEnum::Rarity:
-		// Sort by Rarity
+		SortByRarity(SquashedSize);
 		break;
 	case EInventorySortEnum::Value:
 		// Sort by Value
@@ -527,67 +396,131 @@ void UInventoryComponent::SortInventory(EInventorySortEnum SortType)
 
 void UInventoryComponent::ClearSlotFromIndex(int32 SlotIndex)
 {
-	for (TPair<FString, FSlotStruct>& Map : SlotMap)
-	{
-		if (Map.Value.SlotIndex == SlotIndex)
-		{
-			SlotMap.Remove(*Map.Key);
-			OnSlotChanged.Broadcast(SlotIndex);
-			OnInventoryUpdated.Broadcast();
-			return;
-		}
-	}
+	SlotArray[SlotIndex] = FSlotStruct(); // Reset the slot struct at the given index
+	OnSlotChanged.Broadcast(SlotIndex);
+	OnInventoryUpdated.Broadcast();
 	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Slot index %d not found!"), SlotIndex));
 }
 
-void UInventoryComponent::ClearSlotFromSlotStruct(FSlotStruct SlotStruct)
+int32 UInventoryComponent::NumberOfSlotsFilledByItemName(FString ItemName)
 {
-	ClearSlotFromIndex(SlotStruct.SlotIndex);
-}
-
-TArray<FString> UInventoryComponent::FindItemSerializedNamesFromItemName(FString ItemName)
-{
-	TArray<FString> FoundItemSerializedNames;
-	FString ItemSerializedName;
-
+	int32 Count = 0;
 	for (int32 i = 0; i < InventorySize; i++) 
 	{
-		ItemSerializedName = ItemName;
-		ItemSerializedName.Append(FString::FromInt(i));
-
-		if (SlotMap.Contains(ItemSerializedName))
+		if (SlotArray[i].Item->ItemData.ItemName == ItemName)
 		{
-			FoundItemSerializedNames.Add(ItemSerializedName);
+			Count++;
 		}
 	}
-	return FoundItemSerializedNames;
+	return Count;
 }
 
-TMap<FString,int32> UInventoryComponent::FindItemCountsFromItemName(FString ItemName)
+int32 UInventoryComponent::SquashInventory()
 {
-	TMap<FString, int32> FoundItemCounts;
-	FString ItemSerializedName;
+	TArray<FSlotStruct> NewSlotArray;
+	NewSlotArray.SetNum(InventorySize);
+	int32 NewIndex = 0;
 	for (int32 i = 0; i < InventorySize; i++)
 	{
-		ItemSerializedName = ItemName;
-		ItemSerializedName.Append(FString::FromInt(i));
-
-		if (SlotMap.Contains(ItemSerializedName))
+		if (SlotArray[i].Item != nullptr)
 		{
-			FoundItemCounts.Add(ItemSerializedName, SlotMap[ItemSerializedName].Quantity);
+			NewSlotArray[NewIndex] = SlotArray[i];
+			NewIndex++;
 		}
 	}
-	return FoundItemCounts;
+	SlotArray = NewSlotArray;
+	for (int32 i = 0; i < InventorySize; i++)
+	{
+		OnSlotChanged.Broadcast(i);
+	}
+	OnInventoryUpdated.Broadcast();
+	return NewIndex; // Return number of filled slots
 }
 
-void UInventoryComponent::AddNewItem(UItem* NewItem, FString ItemSerializedName, int32 Amount)
+void UInventoryComponent::SortByName(int32 SquashedSize)
 {
+	int n = SquashedSize;
+	for(int i = 0; i < n-1; i++)
+	{
+		bool swapped = false;
+		for(int j = 0; j < n - i - 1; j++)
+		{
+			if (SlotArray[j].Item->ItemData.ItemName > SlotArray[j+1].Item->ItemData.ItemName)
+			{
+				SwapSlots(j, j + 1);
+				swapped = true;
+			}
+		}
+		if (!swapped)
+		{
+			break; // Array is sorted
+		}
+	}
+}
+
+void UInventoryComponent::SortByWeight(int32 SquashedSize)
+{
+	int n = SquashedSize;
+	for(int i = 0; i < n-1; i++)
+	{
+		bool swapped = false;
+		for(int j = 0; j < n - i - 1; j++)
+		{
+			if (SlotArray[j].Item->ItemData.ItemWeight > SlotArray[j+1].Item->ItemData.ItemWeight)
+			{
+				SwapSlots(j, j + 1);
+				swapped = true;
+			}
+		}
+		if (!swapped)
+		{
+			break; // Array is sorted
+		}
+	}
+}
+
+void UInventoryComponent::SortByRarity(int32 SquashedSize)
+{
+	int n = SquashedSize;
+	for(int i = 0; i < n-1; i++)
+	{
+		bool swapped = false;
+		for(int j = 0; j < n - i - 1; j++)
+		{
+			if (SlotArray[j].Item->ItemData.ItemRarity < SlotArray[j+1].Item->ItemData.ItemRarity)
+			{
+				SwapSlots(j, j + 1);
+				swapped = true;
+			}
+		}
+		if (!swapped)
+		{
+			break; // Array is sorted
+		}
+	}
+}
+
+int32 UInventoryComponent::GetItemAmountFromName(FString ItemName)
+{
+	int32 TotalCount = 0;
+	for (int32 i = 0; i < InventorySize; i++)
+	{
+		if (SlotArray[i].Item->ItemData.ItemName == ItemName)
+		{
+			TotalCount += SlotArray[i].Quantity;
+		}
+	}
+	return TotalCount;
+}
+
+void UInventoryComponent::AddNewItem(UItem* NewItem, int32 Amount)
+{
+	int32 FirstEmptySlotIndex = GetFirstEmptySlotIndex();
 	FSlotStruct NewSlot = FSlotStruct();
-	NewSlot.SlotIndex = GetFirstEmptySlotIndex();
 	NewSlot.Quantity = Amount;
 	NewSlot.Item = NewItem;
-	SlotMap.Add(ItemSerializedName,NewSlot);
-	OnSlotChanged.Broadcast(NewSlot.SlotIndex);
+	SlotArray[FirstEmptySlotIndex] = NewSlot;
+	OnSlotChanged.Broadcast(FirstEmptySlotIndex);
 	OnInventoryUpdated.Broadcast();
 	//GEngine->AddOnScreenDebugMessage(-1, 100.0f, FColor::Green, FString::Printf(TEXT("Added new item: %s (Amount: %d) to slot: %d"), *NewItem->ItemData.ItemName, Amount, NewSlot.SlotIndex));
 }

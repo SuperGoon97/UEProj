@@ -9,7 +9,6 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
- 
 class UItem;
 enum class EInventorySortEnum : uint8;
 struct FSlotStruct;
@@ -27,9 +26,11 @@ PROGRAMENGINEICA2_API void FOnSlotChanged_DelegateWrapper(const FMulticastScript
 
 
 #define FID_ProgramEngineICA2_Source_ProgramEngineICA2_InventoryComponent_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
-	DECLARE_FUNCTION(execFindItemCountsFromItemName); \
-	DECLARE_FUNCTION(execFindItemSerializedNamesFromItemName); \
-	DECLARE_FUNCTION(execClearSlotFromSlotStruct); \
+	DECLARE_FUNCTION(execSortByRarity); \
+	DECLARE_FUNCTION(execSortByWeight); \
+	DECLARE_FUNCTION(execSortByName); \
+	DECLARE_FUNCTION(execSquashInventory); \
+	DECLARE_FUNCTION(execNumberOfSlotsFilledByItemName); \
 	DECLARE_FUNCTION(execClearSlotFromIndex); \
 	DECLARE_FUNCTION(execGetFirstEmptySlotIndex); \
 	DECLARE_FUNCTION(execFoundInMap); \
@@ -47,7 +48,7 @@ PROGRAMENGINEICA2_API void FOnSlotChanged_DelegateWrapper(const FMulticastScript
 	DECLARE_FUNCTION(execTryCombineSlots); \
 	DECLARE_FUNCTION(execGetSlot); \
 	DECLARE_FUNCTION(execGetAllItems); \
-	DECLARE_FUNCTION(execGetItemAmountByName); \
+	DECLARE_FUNCTION(execGetItemAmountFromName); \
 	DECLARE_FUNCTION(execGetItemAmount); \
 	DECLARE_FUNCTION(execAddItem);
 

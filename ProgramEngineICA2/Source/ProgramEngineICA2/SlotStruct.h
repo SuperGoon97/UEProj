@@ -12,9 +12,6 @@ struct FSlotStruct
 	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Slot Data")
-	int32 SlotIndex = -1;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Slot Data")
 	UItem* Item = nullptr;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Slot Data")
