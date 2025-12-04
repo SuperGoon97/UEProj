@@ -12,6 +12,7 @@ void EmptyLinkFunctionForGeneratedCodeItemStruct() {}
 // Begin Cross Module References
 ENGINE_API UClass* Z_Construct_UClass_UTexture_NoRegister();
 ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FTableRowBase();
+PROGRAMENGINEICA2_API UEnum* Z_Construct_UEnum_ProgramEngineICA2_ERarityEnum();
 PROGRAMENGINEICA2_API UScriptStruct* Z_Construct_UScriptStruct_FItemStruct();
 UPackage* Z_Construct_UPackage__Script_ProgramEngineICA2();
 // End Cross Module References
@@ -42,6 +43,18 @@ struct Z_Construct_UScriptStruct_FItemStruct_Statics
 		{ "Category", "Item Data" },
 		{ "ModuleRelativePath", "ItemStruct.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ItemWeight_MetaData[] = {
+		{ "Category", "Item Data" },
+		{ "ModuleRelativePath", "ItemStruct.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ItemRarity_MetaData[] = {
+		{ "Category", "Item Data" },
+		{ "ModuleRelativePath", "ItemStruct.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ItemValue_MetaData[] = {
+		{ "Category", "Item Data" },
+		{ "ModuleRelativePath", "ItemStruct.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ItemIcon_MetaData[] = {
 		{ "Category", "Item Data" },
 		{ "ModuleRelativePath", "ItemStruct.h" },
@@ -52,6 +65,10 @@ struct Z_Construct_UScriptStruct_FItemStruct_Statics
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FStrPropertyParams NewProp_ItemName;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_ItemWeight;
+	static const UECodeGen_Private::FBytePropertyParams NewProp_ItemRarity_Underlying;
+	static const UECodeGen_Private::FEnumPropertyParams NewProp_ItemRarity;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_ItemValue;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ItemIcon;
 	static void NewProp_bIsStackable_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsStackable;
@@ -63,6 +80,10 @@ struct Z_Construct_UScriptStruct_FItemStruct_Statics
 	static const UECodeGen_Private::FStructParams StructParams;
 };
 const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FItemStruct_Statics::NewProp_ItemName = { "ItemName", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FItemStruct, ItemName), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemName_MetaData), NewProp_ItemName_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FItemStruct_Statics::NewProp_ItemWeight = { "ItemWeight", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FItemStruct, ItemWeight), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemWeight_MetaData), NewProp_ItemWeight_MetaData) };
+const UECodeGen_Private::FBytePropertyParams Z_Construct_UScriptStruct_FItemStruct_Statics::NewProp_ItemRarity_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FItemStruct_Statics::NewProp_ItemRarity = { "ItemRarity", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FItemStruct, ItemRarity), Z_Construct_UEnum_ProgramEngineICA2_ERarityEnum, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemRarity_MetaData), NewProp_ItemRarity_MetaData) }; // 269140533
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FItemStruct_Statics::NewProp_ItemValue = { "ItemValue", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FItemStruct, ItemValue), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemValue_MetaData), NewProp_ItemValue_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UScriptStruct_FItemStruct_Statics::NewProp_ItemIcon = { "ItemIcon", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FItemStruct, ItemIcon), Z_Construct_UClass_UTexture_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemIcon_MetaData), NewProp_ItemIcon_MetaData) };
 void Z_Construct_UScriptStruct_FItemStruct_Statics::NewProp_bIsStackable_SetBit(void* Obj)
 {
@@ -71,6 +92,10 @@ void Z_Construct_UScriptStruct_FItemStruct_Statics::NewProp_bIsStackable_SetBit(
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UScriptStruct_FItemStruct_Statics::NewProp_bIsStackable = { "bIsStackable", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(FItemStruct), &Z_Construct_UScriptStruct_FItemStruct_Statics::NewProp_bIsStackable_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsStackable_MetaData), NewProp_bIsStackable_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FItemStruct_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FItemStruct_Statics::NewProp_ItemName,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FItemStruct_Statics::NewProp_ItemWeight,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FItemStruct_Statics::NewProp_ItemRarity_Underlying,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FItemStruct_Statics::NewProp_ItemRarity,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FItemStruct_Statics::NewProp_ItemValue,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FItemStruct_Statics::NewProp_ItemIcon,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FItemStruct_Statics::NewProp_bIsStackable,
 };
@@ -102,10 +127,10 @@ UScriptStruct* Z_Construct_UScriptStruct_FItemStruct()
 struct Z_CompiledInDeferFile_FID_ProgramEngineICA2_Source_ProgramEngineICA2_ItemStruct_h_Statics
 {
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
-		{ FItemStruct::StaticStruct, Z_Construct_UScriptStruct_FItemStruct_Statics::NewStructOps, TEXT("ItemStruct"), &Z_Registration_Info_UScriptStruct_ItemStruct, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FItemStruct), 3840417054U) },
+		{ FItemStruct::StaticStruct, Z_Construct_UScriptStruct_FItemStruct_Statics::NewStructOps, TEXT("ItemStruct"), &Z_Registration_Info_UScriptStruct_ItemStruct, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FItemStruct), 741869142U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ProgramEngineICA2_Source_ProgramEngineICA2_ItemStruct_h_3688116004(TEXT("/Script/ProgramEngineICA2"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ProgramEngineICA2_Source_ProgramEngineICA2_ItemStruct_h_794619976(TEXT("/Script/ProgramEngineICA2"),
 	nullptr, 0,
 	Z_CompiledInDeferFile_FID_ProgramEngineICA2_Source_ProgramEngineICA2_ItemStruct_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ProgramEngineICA2_Source_ProgramEngineICA2_ItemStruct_h_Statics::ScriptStructInfo),
 	nullptr, 0);

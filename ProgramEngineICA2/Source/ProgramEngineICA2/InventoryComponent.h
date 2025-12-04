@@ -4,11 +4,14 @@
 
 #include "CoreMinimal.h"
 #include "SlotStruct.h"
+#include "InventorySortEnum.h"
 #include "Components/ActorComponent.h"
 #include "InventoryComponent.generated.h"
 
 //Delegates
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnInventoryUpdated);
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnSlotChanged,int32,SlotNumber);
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class PROGRAMENGINEICA2_API UInventoryComponent : public UActorComponent
@@ -23,6 +26,9 @@ public:
 
 	UPROPERTY(BlueprintAssignable, Category = "Inventory")
 	FOnInventoryUpdated OnInventoryUpdated;
+
+	UPROPERTY(BlueprintAssignable, Category = "Inventory")
+	FOnSlotChanged OnSlotChanged;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
 	int32 InventorySize;
@@ -50,6 +56,9 @@ public:
 	TArray<FSlotStruct> GetAllItems();
 
 	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	FSlotStruct GetSlot(int32 SlotIndex);
+
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
 	int32 TryCombineSlots(int32 Slot1 , int32 Slot2);
 
 	UFUNCTION(BlueprintCallable, Category = "Inventory")
@@ -73,6 +82,11 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Inventory")
 	void RemoveAllItems();
 
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	bool IsSlotEmpty(int32 SlotIndex);
+
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void SortInventory(EInventorySortEnum SortType);
 
 	// Helper functions
 	UFUNCTION()
@@ -86,12 +100,6 @@ public:
 
 	UFUNCTION()
 	int32 GetFirstEmptySlotIndex();
-
-	UFUNCTION()
-	FSlotStruct GetSlot(int32 SlotIndex);
-
-	UFUNCTION()
-	bool IsSlotEmpty(int32 SlotIndex);
 
 	UFUNCTION()
 	void ClearSlotFromIndex(int32 SlotIndex);

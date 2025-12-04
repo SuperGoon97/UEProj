@@ -135,6 +135,12 @@
     <ClCompile Include="..\..\Source\ProgramEngineICA2\InventoryComponent.h">
       <Filter>Source\ProgramEngineICA2</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\ProgramEngineICA2\InventorySortEnum.cpp">
+      <Filter>Source\ProgramEngineICA2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ProgramEngineICA2\InventorySortEnum.h">
+      <Filter>Source\ProgramEngineICA2</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\ProgramEngineICA2\Item.cpp">
       <Filter>Source\ProgramEngineICA2</Filter>
     </ClCompile>
@@ -178,6 +184,12 @@
       <Filter>Source\ProgramEngineICA2</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\ProgramEngineICA2\ProgramEngineICA2Projectile.h">
+      <Filter>Source\ProgramEngineICA2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ProgramEngineICA2\RarityEnum.cpp">
+      <Filter>Source\ProgramEngineICA2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ProgramEngineICA2\RarityEnum.h">
       <Filter>Source\ProgramEngineICA2</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\ProgramEngineICA2\SlotStruct.cpp">

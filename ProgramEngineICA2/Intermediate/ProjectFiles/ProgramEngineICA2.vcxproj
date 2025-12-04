@@ -633,6 +633,16 @@
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_2)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
     </ClCompile>
+    <ClCompile Include="..\..\Source\ProgramEngineICA2\InventorySortEnum.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_2)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_2)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ProgramEngineICA2\InventorySortEnum.h">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_2)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_2)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
     <ClCompile Include="..\..\Source\ProgramEngineICA2\Item.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_2)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_2)</ForcedIncludeFiles>
@@ -700,6 +710,16 @@
       <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
     </ClCompile>
     <ClCompile Include="..\..\Source\ProgramEngineICA2\ProgramEngineICA2Projectile.h">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_2)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_2)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ProgramEngineICA2\RarityEnum.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_2)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_2)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ProgramEngineICA2\RarityEnum.h">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_2)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_2)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
