@@ -14,6 +14,7 @@
     <ProjectReference Include="E:\EpicGames\Epic Games\UE_5.5\Engine\Source\Programs\UnrealBuildTool\UnrealBuildTool.csproj"><Private>false</Private></ProjectReference>
   </ItemGroup>
   <ItemGroup>
+  <Compile Include="..\..\..\..\Plugins\InventorySystem\Source\InventorySystem\InventorySystem.Build.cs"><Link>Plugins\InventorySystem\Source\InventorySystem\InventorySystem.Build.cs</Link></Compile>
   <Compile Include="..\..\..\..\Plugins\VisualStudioTools\Source\VisualStudioBlueprintDebuggerHelper\VisualStudioBlueprintDebuggerHelper.Build.cs"><Link>Plugins\VisualStudioTools\Source\VisualStudioBlueprintDebuggerHelper\VisualStudioBlueprintDebuggerHelper.Build.cs</Link></Compile>
   <Compile Include="..\..\..\..\Plugins\VisualStudioTools\Source\VisualStudioTools\VisualStudioTools.Build.cs"><Link>Plugins\VisualStudioTools\Source\VisualStudioTools\VisualStudioTools.Build.cs</Link></Compile>
   <Compile Include="..\..\..\..\Source\ProgramEngineICA2.Target.cs"><Link>Source\ProgramEngineICA2.Target.cs</Link></Compile>

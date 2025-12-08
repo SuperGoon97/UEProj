@@ -1,6 +1,7 @@
 {
 	"SourceFiles": [
 		"G:\\School\\Year2\\UEProj\\ProgramEngineICA2\\Source\\ProgramEngineICA2\\ProgramEngineICA2.Build.cs",
+		"G:\\School\\Year2\\UEProj\\ProgramEngineICA2\\Plugins\\InventorySystem\\Source\\InventorySystem\\InventorySystem.Build.cs",
 		"G:\\School\\Year2\\UEProj\\ProgramEngineICA2\\Plugins\\VisualStudioTools\\Source\\VisualStudioBlueprintDebuggerHelper\\VisualStudioBlueprintDebuggerHelper.Build.cs",
 		"G:\\School\\Year2\\UEProj\\ProgramEngineICA2\\Plugins\\VisualStudioTools\\Source\\VisualStudioTools\\VisualStudioTools.Build.cs",
 		"G:\\School\\Year2\\UEProj\\ProgramEngineICA2\\Source\\ProgramEngineICA2.Target.cs",

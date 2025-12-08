@@ -33,9 +33,105 @@
     <Filter Include="Plugins">
       <UniqueIdentifier>{BB38096A-B391-30DC-A0D4-4F3EA6B44507}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Plugins\InventorySystem">
+      <UniqueIdentifier>{A2BF5006-84DF-3030-81ED-6D107A4F4A5D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\InventorySystem\Source">
+      <UniqueIdentifier>{1BB6BB89-0FB5-3257-95FC-63F37A8F859A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\InventorySystem\Source\InventorySystem">
+      <UniqueIdentifier>{4A6F7A4A-A091-3FCF-8BD3-FA7B8FB68641}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\InventorySystem\Source\InventorySystem\InventorySystem.Build.cs">
+      <Filter>Plugins\InventorySystem\Source\InventorySystem</Filter>
+    </None>
+    <Filter Include="Plugins\InventorySystem\Source\InventorySystem\Private">
+      <UniqueIdentifier>{C3815E5D-62EE-3BE0-A0DA-26E7EF784526}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Plugins\InventorySystem\Source\InventorySystem\Private\InventoryComponent.cpp">
+      <Filter>Plugins\InventorySystem\Source\InventorySystem\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\InventorySystem\Source\InventorySystem\Private\InventorySortEnum.cpp">
+      <Filter>Plugins\InventorySystem\Source\InventorySystem\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\InventorySystem\Source\InventorySystem\Private\InventorySystem.cpp">
+      <Filter>Plugins\InventorySystem\Source\InventorySystem\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\InventorySystem\Source\InventorySystem\Private\Item.cpp">
+      <Filter>Plugins\InventorySystem\Source\InventorySystem\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\InventorySystem\Source\InventorySystem\Private\ItemRarityRNG.cpp">
+      <Filter>Plugins\InventorySystem\Source\InventorySystem\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\InventorySystem\Source\InventorySystem\Private\ItemStruct.cpp">
+      <Filter>Plugins\InventorySystem\Source\InventorySystem\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\InventorySystem\Source\InventorySystem\Private\RarityEnum.cpp">
+      <Filter>Plugins\InventorySystem\Source\InventorySystem\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\InventorySystem\Source\InventorySystem\Private\SlotStruct.cpp">
+      <Filter>Plugins\InventorySystem\Source\InventorySystem\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\InventorySystem\Source\InventorySystem\Public">
+      <UniqueIdentifier>{21782000-14C5-3982-AA83-FFD4597C6534}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Plugins\InventorySystem\Source\InventorySystem\Public\InventoryComponent.h">
+      <Filter>Plugins\InventorySystem\Source\InventorySystem\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\InventorySystem\Source\InventorySystem\Public\InventorySortEnum.h">
+      <Filter>Plugins\InventorySystem\Source\InventorySystem\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\InventorySystem\Source\InventorySystem\Public\InventorySystem.h">
+      <Filter>Plugins\InventorySystem\Source\InventorySystem\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\InventorySystem\Source\InventorySystem\Public\Item.h">
+      <Filter>Plugins\InventorySystem\Source\InventorySystem\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\InventorySystem\Source\InventorySystem\Public\ItemRarityRNG.h">
+      <Filter>Plugins\InventorySystem\Source\InventorySystem\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\InventorySystem\Source\InventorySystem\Public\ItemStruct.h">
+      <Filter>Plugins\InventorySystem\Source\InventorySystem\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\InventorySystem\Source\InventorySystem\Public\RarityEnum.h">
+      <Filter>Plugins\InventorySystem\Source\InventorySystem\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\InventorySystem\Source\InventorySystem\Public\SlotStruct.h">
+      <Filter>Plugins\InventorySystem\Source\InventorySystem\Public</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\EnginePluginInventorySystem">
+      <UniqueIdentifier>{FB48E6AF-15F3-393D-B45E-CD500D5BE351}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\EnginePluginInventorySystem\EnginePluginInventorySystem.uplugin">
+      <Filter>Plugins\EnginePluginInventorySystem</Filter>
+    </None>
+    <Filter Include="Plugins\EnginePluginInventorySystem\Resources">
+      <UniqueIdentifier>{4A20E033-40C6-3450-B04D-BE2146E18B6E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\EnginePluginInventorySystem\Resources\Icon128.png">
+      <Filter>Plugins\EnginePluginInventorySystem\Resources</Filter>
+    </None>
+    <None Include="..\..\Plugins\InventorySystem\InventorySystem.uplugin">
+      <Filter>Plugins\InventorySystem</Filter>
+    </None>
+    <Filter Include="Plugins\InventorySystem\Resources">
+      <UniqueIdentifier>{55900607-071E-334B-8D10-982EBFFD765A}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\InventorySystem\Resources\Icon128.png">
+      <Filter>Plugins\InventorySystem\Resources</Filter>
+    </None>
     <Filter Include="Plugins\VisualStudioTools">
       <UniqueIdentifier>{41769F9C-1A97-316F-BB54-C3A5E5B67BD9}</UniqueIdentifier>
     </Filter>
+    <None Include="..\..\Plugins\VisualStudioTools\VisualStudioTools.uplugin">
+      <Filter>Plugins\VisualStudioTools</Filter>
+    </None>
+    <Filter Include="Plugins\VisualStudioTools\Config">
+      <UniqueIdentifier>{CB5E8725-3658-331E-9E61-542E2997D7C5}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\VisualStudioTools\Config\FilterPlugin.ini">
+      <Filter>Plugins\VisualStudioTools\Config</Filter>
+    </None>
     <Filter Include="Plugins\VisualStudioTools\Source">
       <UniqueIdentifier>{1D6F83A9-DB28-3ED2-9726-5CBD49662E2A}</UniqueIdentifier>
     </Filter>
@@ -54,15 +150,6 @@
     <ClCompile Include="..\..\Plugins\VisualStudioTools\Source\VisualStudioBlueprintDebuggerHelper\Private\VisualStudioBlueprintDebuggerHelperModule.h">
       <Filter>Plugins\VisualStudioTools\Source\VisualStudioBlueprintDebuggerHelper\Private</Filter>
     </ClCompile>
-    <None Include="..\..\Plugins\VisualStudioTools\VisualStudioTools.uplugin">
-      <Filter>Plugins\VisualStudioTools</Filter>
-    </None>
-    <Filter Include="Plugins\VisualStudioTools\Config">
-      <UniqueIdentifier>{CB5E8725-3658-331E-9E61-542E2997D7C5}</UniqueIdentifier>
-    </Filter>
-    <None Include="..\..\Plugins\VisualStudioTools\Config\FilterPlugin.ini">
-      <Filter>Plugins\VisualStudioTools\Config</Filter>
-    </None>
     <Filter Include="Plugins\VisualStudioTools\Source\VisualStudioTools">
       <UniqueIdentifier>{E48AC123-3582-39B0-901B-970708A27A9A}</UniqueIdentifier>
     </Filter>
@@ -129,30 +216,6 @@
     <Filter Include="Source\ProgramEngineICA2">
       <UniqueIdentifier>{7FD5836A-6EEF-3E31-A532-721AD3CDDCA2}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\ProgramEngineICA2\InventoryComponent.cpp">
-      <Filter>Source\ProgramEngineICA2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\ProgramEngineICA2\InventoryComponent.h">
-      <Filter>Source\ProgramEngineICA2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\ProgramEngineICA2\InventorySortEnum.cpp">
-      <Filter>Source\ProgramEngineICA2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\ProgramEngineICA2\InventorySortEnum.h">
-      <Filter>Source\ProgramEngineICA2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\ProgramEngineICA2\Item.cpp">
-      <Filter>Source\ProgramEngineICA2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\ProgramEngineICA2\Item.h">
-      <Filter>Source\ProgramEngineICA2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\ProgramEngineICA2\ItemStruct.cpp">
-      <Filter>Source\ProgramEngineICA2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\ProgramEngineICA2\ItemStruct.h">
-      <Filter>Source\ProgramEngineICA2</Filter>
-    </ClCompile>
     <None Include="..\..\Source\ProgramEngineICA2\ProgramEngineICA2.Build.cs">
       <Filter>Source\ProgramEngineICA2</Filter>
     </None>
@@ -184,18 +247,6 @@
       <Filter>Source\ProgramEngineICA2</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\ProgramEngineICA2\ProgramEngineICA2Projectile.h">
-      <Filter>Source\ProgramEngineICA2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\ProgramEngineICA2\RarityEnum.cpp">
-      <Filter>Source\ProgramEngineICA2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\ProgramEngineICA2\RarityEnum.h">
-      <Filter>Source\ProgramEngineICA2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\ProgramEngineICA2\SlotStruct.cpp">
-      <Filter>Source\ProgramEngineICA2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\ProgramEngineICA2\SlotStruct.h">
       <Filter>Source\ProgramEngineICA2</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\ProgramEngineICA2\TP_PickUpComponent.cpp">

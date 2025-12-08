@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "g:\\school\\year2\\ueproj\\programengineica2\\plugins\\inventorysystem\\intermediate\\build\\win64\\unrealeditor\\inc\\inventorysystem\\uht\\inventorysortenum.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "g:\\school\\year2\\ueproj\\programengineica2\\intermediate\\build\\win64\\x64\\programengineica2editor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.inclorderunreal5_4.h.pch",
+        "Includes": [
+            "g:\\school\\year2\\ueproj\\programengineica2\\plugins\\inventorysystem\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\inventorysystem\\definitions.inventorysystem.h",
+            "g:\\school\\year2\\ueproj\\programengineica2\\plugins\\inventorysystem\\source\\inventorysystem\\public\\inventorysortenum.h",
+            "g:\\school\\year2\\ueproj\\programengineica2\\plugins\\inventorysystem\\intermediate\\build\\win64\\unrealeditor\\inc\\inventorysystem\\uht\\inventorysortenum.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

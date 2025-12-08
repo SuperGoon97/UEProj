@@ -4818,6 +4818,18 @@
 			"Type": "RequiredResource"
 		},
 		{
+			"Path": "$(ProjectDir)/Plugins/InventorySystem/Binaries/Win64/UnrealEditor-InventorySystem.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(ProjectDir)/Plugins/InventorySystem/Binaries/Win64/UnrealEditor-InventorySystem.pdb",
+			"Type": "SymbolFile"
+		},
+		{
+			"Path": "$(ProjectDir)/Plugins/InventorySystem/Binaries/Win64/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
 			"Path": "$(ProjectDir)/Plugins/VisualStudioTools/Binaries/Win64/UnrealEditor-VisualStudioBlueprintDebuggerHelper.dll",
 			"Type": "DynamicLibrary"
 		},
@@ -30564,6 +30576,14 @@
 			"Type": "UFS"
 		},
 		{
+			"Path": "$(ProjectDir)/Plugins/EnginePluginInventorySystem/EnginePluginInventorySystem.uplugin",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(ProjectDir)/Plugins/InventorySystem/InventorySystem.uplugin",
+			"Type": "UFS"
+		},
+		{
 			"Path": "$(ProjectDir)/Plugins/VisualStudioTools/VisualStudioTools.uplugin",
 			"Type": "UFS"
 		},
@@ -30644,6 +30664,7 @@
 		"EditorTelemetry",
 		"EngineAssetDefinitions",
 		"EngineCameras",
+		"EnginePluginInventorySystem",
 		"EnhancedInput",
 		"EnvironmentQueryEditor",
 		"ExampleDeviceProfileSelector",
@@ -30673,6 +30694,7 @@
 		"InterchangeAssets",
 		"InterchangeEditor",
 		"InterchangeTests",
+		"InventorySystem",
 		"KDevelopSourceCodeAccess",
 		"LauncherChunkInstaller",
 		"LevelSequenceEditor",

@@ -7,31 +7,27 @@
 #include "UObject/GeneratedCppIncludes.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeProgramEngineICA2_init() {}
-	PROGRAMENGINEICA2_API UFunction* Z_Construct_UDelegateFunction_ProgramEngineICA2_OnInventoryUpdated__DelegateSignature();
 	PROGRAMENGINEICA2_API UFunction* Z_Construct_UDelegateFunction_ProgramEngineICA2_OnPickUp__DelegateSignature();
-	PROGRAMENGINEICA2_API UFunction* Z_Construct_UDelegateFunction_ProgramEngineICA2_OnSlotChanged__DelegateSignature();
 	static FPackageRegistrationInfo Z_Registration_Info_UPackage__Script_ProgramEngineICA2;
 	FORCENOINLINE UPackage* Z_Construct_UPackage__Script_ProgramEngineICA2()
 	{
 		if (!Z_Registration_Info_UPackage__Script_ProgramEngineICA2.OuterSingleton)
 		{
 			static UObject* (*const SingletonFuncArray[])() = {
-				(UObject* (*)())Z_Construct_UDelegateFunction_ProgramEngineICA2_OnInventoryUpdated__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_ProgramEngineICA2_OnPickUp__DelegateSignature,
-				(UObject* (*)())Z_Construct_UDelegateFunction_ProgramEngineICA2_OnSlotChanged__DelegateSignature,
 			};
 			static const UECodeGen_Private::FPackageParams PackageParams = {
 				"/Script/ProgramEngineICA2",
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0x796A9C2C,
-				0x1769FB09,
+				0xC84E2596,
+				0x845108E3,
 				METADATA_PARAMS(0, nullptr)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_ProgramEngineICA2.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_ProgramEngineICA2.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_ProgramEngineICA2(Z_Construct_UPackage__Script_ProgramEngineICA2, TEXT("/Script/ProgramEngineICA2"), Z_Registration_Info_UPackage__Script_ProgramEngineICA2, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x796A9C2C, 0x1769FB09));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_ProgramEngineICA2(Z_Construct_UPackage__Script_ProgramEngineICA2, TEXT("/Script/ProgramEngineICA2"), Z_Registration_Info_UPackage__Script_ProgramEngineICA2, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xC84E2596, 0x845108E3));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

@@ -1,0 +1,31 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "g:\\school\\year2\\ueproj\\programengineica2\\plugins\\inventorysystem\\source\\inventorysystem\\private\\inventorycomponent.cpp",
+        "ProvidedModule": "",
+        "PCH": "g:\\school\\year2\\ueproj\\programengineica2\\intermediate\\build\\win64\\x64\\programengineica2editor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.inclorderunreal5_4.h.pch",
+        "Includes": [
+            "g:\\school\\year2\\ueproj\\programengineica2\\plugins\\inventorysystem\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\inventorysystem\\definitions.inventorysystem.h",
+            "g:\\school\\year2\\ueproj\\programengineica2\\plugins\\inventorysystem\\source\\inventorysystem\\public\\inventorycomponent.h",
+            "g:\\school\\year2\\ueproj\\programengineica2\\plugins\\inventorysystem\\source\\inventorysystem\\public\\slotstruct.h",
+            "g:\\school\\year2\\ueproj\\programengineica2\\plugins\\inventorysystem\\source\\inventorysystem\\public\\item.h",
+            "g:\\school\\year2\\ueproj\\programengineica2\\plugins\\inventorysystem\\source\\inventorysystem\\public\\itemstruct.h",
+            "g:\\school\\year2\\ueproj\\programengineica2\\plugins\\inventorysystem\\source\\inventorysystem\\public\\rarityenum.h",
+            "g:\\school\\year2\\ueproj\\programengineica2\\plugins\\inventorysystem\\intermediate\\build\\win64\\unrealeditor\\inc\\inventorysystem\\uht\\rarityenum.generated.h",
+            "g:\\school\\year2\\ueproj\\programengineica2\\plugins\\inventorysystem\\intermediate\\build\\win64\\unrealeditor\\inc\\inventorysystem\\uht\\itemstruct.generated.h",
+            "e:\\epicgames\\epic games\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\uobject\\noexporttypes.h",
+            "e:\\epicgames\\epic games\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\uobject\\propertyaccessutil.h",
+            "e:\\epicgames\\epic games\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\serialization\\testundeclaredscriptstructobjectreferences.h",
+            "e:\\epicgames\\epic games\\ue_5.5\\engine\\source\\runtime\\core\\public\\math\\unitconversion.h",
+            "e:\\epicgames\\epic games\\ue_5.5\\engine\\source\\runtime\\core\\public\\math\\unitconversion.inl",
+            "e:\\epicgames\\epic games\\ue_5.5\\engine\\source\\runtime\\core\\public\\internationalization\\polyglottextdata.h",
+            "g:\\school\\year2\\ueproj\\programengineica2\\plugins\\inventorysystem\\intermediate\\build\\win64\\unrealeditor\\inc\\inventorysystem\\uht\\item.generated.h",
+            "g:\\school\\year2\\ueproj\\programengineica2\\plugins\\inventorysystem\\intermediate\\build\\win64\\unrealeditor\\inc\\inventorysystem\\uht\\slotstruct.generated.h",
+            "g:\\school\\year2\\ueproj\\programengineica2\\plugins\\inventorysystem\\source\\inventorysystem\\public\\inventorysortenum.h",
+            "g:\\school\\year2\\ueproj\\programengineica2\\plugins\\inventorysystem\\intermediate\\build\\win64\\unrealeditor\\inc\\inventorysystem\\uht\\inventorysortenum.generated.h",
+            "g:\\school\\year2\\ueproj\\programengineica2\\plugins\\inventorysystem\\intermediate\\build\\win64\\unrealeditor\\inc\\inventorysystem\\uht\\inventorycomponent.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

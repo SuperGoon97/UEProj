@@ -1,0 +1,13 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-InventorySystem.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"G:\School\Year2\UEProj\ProgramEngineICA2\Intermediate\Build\Win64\x64\ProgramEngineICA2Editor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.InclOrderUnreal5_4.h.obj"
+"G:\School\Year2\UEProj\ProgramEngineICA2\Plugins\InventorySystem\Intermediate\Build\Win64\x64\UnrealEditor\Development\InventorySystem\InventorySystem.cpp.obj"
+"G:\School\Year2\UEProj\ProgramEngineICA2\Plugins\InventorySystem\Intermediate\Build\Win64\x64\UnrealEditor\Development\InventorySystem\PerModuleInline.gen.cpp.obj"
+"G:\School\Year2\UEProj\ProgramEngineICA2\Plugins\InventorySystem\Intermediate\Build\Win64\x64\UnrealEditor\Development\InventorySystem\Default.rc2.res"
+/OUT:"G:\School\Year2\UEProj\ProgramEngineICA2\Plugins\InventorySystem\Intermediate\Build\Win64\x64\UnrealEditor\Development\InventorySystem\UnrealEditor-InventorySystem.lib"
