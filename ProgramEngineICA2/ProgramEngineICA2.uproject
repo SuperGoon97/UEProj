@@ -5,24 +5,11 @@
 	"Description": "",
 	"Modules": [
 		{
-			"Name": "InventorySystem",
-			"Type": "Runtime",
-			"LoadingPhase": "Default",
-      "AdditionalDependencies": [
-        "Core",
-        "CoreUObject",
-        "Engine",
-        "InputCore",
-        "Slate",
-        "SlateCore",
-        "UMG"
-      ]
-		},
-		{
 			"Name": "ProgramEngineICA2",
 			"Type": "Runtime",
 			"LoadingPhase": "Default",
 			"AdditionalDependencies": [
+				"InventorySystem",
 				"CoreUObject",
 				"Engine"
 			]

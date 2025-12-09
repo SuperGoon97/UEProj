@@ -22,7 +22,7 @@ public class InventorySystem : ModuleRules
 			);
 
 
-        PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput", "UMG" });
+        PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "UMG" });
 
 
         PrivateDependencyModuleNames.AddRange(
