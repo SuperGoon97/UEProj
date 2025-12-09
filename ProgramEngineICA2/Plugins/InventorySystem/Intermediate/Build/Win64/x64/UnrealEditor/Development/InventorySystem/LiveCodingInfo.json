@@ -4,21 +4,21 @@
 		"Module.InventorySystem.cpp.obj": [
 			"InventoryComponent.gen.cpp.obj",
 			"InventorySortEnum.gen.cpp.obj",
-			"InventorySystem.init.gen.cpp.obj",
-			"Item.gen.cpp.obj",
 			"ItemRarityRNG.gen.cpp.obj",
 			"ItemStruct.gen.cpp.obj",
 			"RarityEnum.gen.cpp.obj",
 			"SlotStruct.gen.cpp.obj",
 			"PerModuleInline.gen.cpp.obj",
+			"InventoryComponent.cpp.obj",
 			"InventorySortEnum.cpp.obj",
 			"InventorySystem.cpp.obj",
-			"Item.cpp.obj",
 			"ItemRarityRNG.cpp.obj",
 			"ItemStruct.cpp.obj",
 			"RarityEnum.cpp.obj",
 			"SlotStruct.cpp.obj",
-			"InventoryComponent.cpp.obj"
+			"InventorySystem.init.gen.cpp.obj",
+			"Item.gen.cpp.obj",
+			"Item.cpp.obj"
 		]
 	}
 }

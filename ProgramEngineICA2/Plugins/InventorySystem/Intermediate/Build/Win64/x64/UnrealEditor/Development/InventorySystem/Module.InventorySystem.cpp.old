@@ -11,7 +11,6 @@
 #include "G:/School/Year2/UEProj/ProgramEngineICA2/Plugins/InventorySystem/Source/InventorySystem/Private/InventoryComponent.cpp"
 #include "G:/School/Year2/UEProj/ProgramEngineICA2/Plugins/InventorySystem/Source/InventorySystem/Private/InventorySortEnum.cpp"
 #include "G:/School/Year2/UEProj/ProgramEngineICA2/Plugins/InventorySystem/Source/InventorySystem/Private/InventorySystem.cpp"
-#include "G:/School/Year2/UEProj/ProgramEngineICA2/Plugins/InventorySystem/Source/InventorySystem/Private/Item.cpp"
 #include "G:/School/Year2/UEProj/ProgramEngineICA2/Plugins/InventorySystem/Source/InventorySystem/Private/ItemRarityRNG.cpp"
 #include "G:/School/Year2/UEProj/ProgramEngineICA2/Plugins/InventorySystem/Source/InventorySystem/Private/ItemStruct.cpp"
 #include "G:/School/Year2/UEProj/ProgramEngineICA2/Plugins/InventorySystem/Source/InventorySystem/Private/RarityEnum.cpp"

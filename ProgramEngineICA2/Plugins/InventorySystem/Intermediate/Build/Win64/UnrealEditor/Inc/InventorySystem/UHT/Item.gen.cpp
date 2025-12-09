@@ -36,6 +36,7 @@ struct Z_Construct_UClass_UItem_Statics
 		{ "Comment", "/**\n * \n */" },
 #endif
 		{ "IncludePath", "Item.h" },
+		{ "IsBlueprintBase", "true" },
 		{ "ModuleRelativePath", "Public/Item.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ItemData_MetaData[] = {
@@ -97,10 +98,10 @@ UItem::~UItem() {}
 struct Z_CompiledInDeferFile_FID_ProgramEngineICA2_Plugins_InventorySystem_Source_InventorySystem_Public_Item_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UItem, UItem::StaticClass, TEXT("UItem"), &Z_Registration_Info_UClass_UItem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UItem), 3687696461U) },
+		{ Z_Construct_UClass_UItem, UItem::StaticClass, TEXT("UItem"), &Z_Registration_Info_UClass_UItem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UItem), 1865197774U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ProgramEngineICA2_Plugins_InventorySystem_Source_InventorySystem_Public_Item_h_3889281994(TEXT("/Script/InventorySystem"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_ProgramEngineICA2_Plugins_InventorySystem_Source_InventorySystem_Public_Item_h_3121767077(TEXT("/Script/InventorySystem"),
 	Z_CompiledInDeferFile_FID_ProgramEngineICA2_Plugins_InventorySystem_Source_InventorySystem_Public_Item_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_ProgramEngineICA2_Plugins_InventorySystem_Source_InventorySystem_Public_Item_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

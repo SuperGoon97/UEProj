@@ -8,6 +8,8 @@
 /NODEFAULTLIB
 "G:\School\Year2\UEProj\ProgramEngineICA2\Intermediate\Build\Win64\x64\ProgramEngineICA2Editor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.InclOrderUnreal5_4.h.obj"
 "G:\School\Year2\UEProj\ProgramEngineICA2\Plugins\InventorySystem\Intermediate\Build\Win64\x64\UnrealEditor\Development\InventorySystem\Module.InventorySystem.cpp.obj"
-"G:\School\Year2\UEProj\ProgramEngineICA2\Plugins\InventorySystem\Intermediate\Build\Win64\x64\UnrealEditor\Development\InventorySystem\InventoryComponent.cpp.obj"
+"G:\School\Year2\UEProj\ProgramEngineICA2\Plugins\InventorySystem\Intermediate\Build\Win64\x64\UnrealEditor\Development\InventorySystem\Item.cpp.obj"
+"G:\School\Year2\UEProj\ProgramEngineICA2\Plugins\InventorySystem\Intermediate\Build\Win64\x64\UnrealEditor\Development\InventorySystem\InventorySystem.init.gen.cpp.obj"
+"G:\School\Year2\UEProj\ProgramEngineICA2\Plugins\InventorySystem\Intermediate\Build\Win64\x64\UnrealEditor\Development\InventorySystem\Item.gen.cpp.obj"
 "G:\School\Year2\UEProj\ProgramEngineICA2\Plugins\InventorySystem\Intermediate\Build\Win64\x64\UnrealEditor\Development\InventorySystem\Default.rc2.res"
 /OUT:"G:\School\Year2\UEProj\ProgramEngineICA2\Plugins\InventorySystem\Intermediate\Build\Win64\x64\UnrealEditor\Development\InventorySystem\UnrealEditor-InventorySystem.lib"

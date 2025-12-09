@@ -14,11 +14,11 @@
 			"InventoryComponent.cpp.obj",
 			"InventorySortEnum.cpp.obj",
 			"InventorySystem.cpp.obj",
-			"Item.cpp.obj",
 			"ItemRarityRNG.cpp.obj",
 			"ItemStruct.cpp.obj",
 			"RarityEnum.cpp.obj",
-			"SlotStruct.cpp.obj"
+			"SlotStruct.cpp.obj",
+			"Item.cpp.obj"
 		]
 	}
 }

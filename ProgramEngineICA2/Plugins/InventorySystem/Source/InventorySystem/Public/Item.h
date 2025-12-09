@@ -10,7 +10,7 @@
 /**
  * 
  */
-UCLASS(BlueprintType)
+UCLASS(Blueprintable,BlueprintType)
 class INVENTORYSYSTEM_API UItem : public UObject
 {
 	GENERATED_BODY()
