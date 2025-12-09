@@ -42,12 +42,20 @@ void UInventoryComponent::AddItem(UItem* NewItem, int32 Amount, bool& AllItemsSt
 				else
 				{
 					Remainder = Amount;
+					AllItemsStacked = false;
 					break; // No more space
 				}
 			}
 		}
 	}
-
+	if (Remainder == 0)
+	{
+		AllItemsStacked = true;
+	}
+	else
+	{
+		AllItemsStacked = false;
+	}
 	return;
 }
 

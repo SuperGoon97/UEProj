@@ -4822,6 +4822,14 @@
 			"Type": "DynamicLibrary"
 		},
 		{
+			"Path": "$(ProjectDir)/Plugins/InventorySystem/Binaries/Win64/UnrealEditor-InventorySystem.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(ProjectDir)/Plugins/InventorySystem/Binaries/Win64/UnrealEditor-InventorySystem.pdb",
+			"Type": "SymbolFile"
+		},
+		{
 			"Path": "$(ProjectDir)/Plugins/InventorySystem/Binaries/Win64/UnrealEditor-InventorySystem.pdb",
 			"Type": "SymbolFile"
 		},
